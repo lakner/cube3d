@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+         #
+#    By: slakner <slakner@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 01:23:39 by dcharala          #+#    #+#              #
-#    Updated: 2023/03/04 18:10:06 by dcharala         ###   ########.fr        #
+#    Updated: 2023/03/05 20:10:31 by slakner          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ MLX_PATH := MLX42
 LFT := libft.a
 ifeq ($(shell uname), Darwin)
 MLX := libmlx42_mac.a
-MLXFLAGS := -lglfw
+MLXFLAGS := -L"${HOME}/.brew/opt/glfw/lib/" -lglfw
 endif
 ifeq ($(shell uname), Linux)
 MLX := libmlx42_linux.a
