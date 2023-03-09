@@ -6,15 +6,33 @@
 /*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:37:50 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/09 23:29:34 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/09 23:59:21 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool    user_input()
+void    raise_error(char *err)
 {
-    return (true);
+    write(2, err, ft_strlen(err));
+    // maybe create a garbage collecor to remove the shit before you exit
+    exit(1);
+}
+
+// check on whether to return false at all
+bool    user_input(int argc, char **argv)
+{
+	if (argc > 2)
+	{
+		raise_error(TOO_MANY_ARGS);
+		return (false);
+	}
+    if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".cub", 4))
+    {
+    	raise_error(NOT_DOT_CUB);
+    	return (false);
+    }
+	return (true);
 }
 
 void free_split(char **tokens)
@@ -24,13 +42,6 @@ void free_split(char **tokens)
     while (*tmp)
         free(*tmp++);
     free(tokens);
-}
-
-void    raise_error(char *err)
-{
-    write(2, err, ft_strlen(err));
-    // maybe create a garbage collecor to remove the shit before you exit
-    exit(1);
 }
 
 bool    line_start_valid(struct s_data *data, char *str)
@@ -184,6 +195,8 @@ bool    data_create(struct s_data *data, char *file_map)
     char    *line;
 
     data->map_fd = open(file_map, O_RDONLY);
+    if (data->map_fd == -1)
+    	raise_error(MAP_NOT_FOUND);
     line = get_next_line(data->map_fd);
     while (line != NULL)
     {
@@ -217,8 +230,7 @@ int main(int argc, char **argv)
 {
     struct s_data   data;
 
-    (void)argc;
-    if (user_input() == true)
+    if (user_input(argc, argv) == true)
     {
         if (data_create(&data, argv[1]))
             draw();

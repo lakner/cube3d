@@ -6,7 +6,7 @@
 /*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:35:29 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/09 23:25:05 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/10 00:01:00 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,15 @@
 #include <stdbool.h>
 
 // macros for error
-#define WRONG_INPUT "YOUR SHIT IS BAD\n"
-#define MAP_ERROR "1YOUR SHIT IS BAD\n"
-#define COLOR_INVALID "2YOUR SHIT IS BAD\n"
-#define TEXTURE_INVALID "3YOUR SHIT IS BAD\n"
+#define WRONG_INPUT "WRONG_INPUT\n"
+#define MAP_ERROR "MAP_ERROR\n"
+#define COLOR_INVALID "COLOR_INVALID\n"
+#define TEXTURE_INVALID "TEXTURE INVALID\n"
 #define TOO_MANY_ARGS_FOR_PATH "TOO_MANY_ARGS_FOR_PATH\n"
+#define TOO_MANY_ARGS "TOO_MANY_ARGS\n"
+#define MAP_NOT_FOUND "MAP_NOT_FOUND\n"
+#define NOT_DOT_CUB "NOT_DOT_CUB\n"
+
 struct s_data
 {
     int     map_fd;
