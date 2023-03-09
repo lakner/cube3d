@@ -6,7 +6,7 @@
 /*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:35:29 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/09 22:05:14 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/09 23:25:05 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #define MAP_ERROR "1YOUR SHIT IS BAD\n"
 #define COLOR_INVALID "2YOUR SHIT IS BAD\n"
 #define TEXTURE_INVALID "3YOUR SHIT IS BAD\n"
-
+#define TOO_MANY_ARGS_FOR_PATH "TOO_MANY_ARGS_FOR_PATH\n"
 struct s_data
 {
     int     map_fd;
