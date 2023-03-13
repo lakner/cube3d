@@ -453,6 +453,7 @@ bool    data_create(struct s_data *data, char *file_map)
     data->map_fd = open(file_map, O_RDONLY);
     data->width = 0;
     data->height = 0;
+    data->map_list = NULL; // uninitialized causes SIGSEG on Linux
     line = newline_strip(get_next_line(data->map_fd));
     while (line != NULL)
     {
