@@ -51,7 +51,8 @@ struct s_data
     bool    map_found;
     
     struct  s_map_list *map_list;
-    char    **map;    
+    char    **map;
+    int     **map_int;    
 };
 
 

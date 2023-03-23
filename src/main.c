@@ -46,6 +46,14 @@ void print_s_data(struct s_data* data)
         printf("\n");
     }
 
+    printf("The fucking int map is : \n");
+    for (int i = 0; i < data->height; i++) {
+        for (int j = 0; j < data->width; j++) {
+            printf("%d ", data->map_int[i][j]);
+        }
+        printf("\n");
+    }
+
     // printf("map:\n");
     // for (int i = 0; data->map[i] != NULL; i++) {
     //     printf("%s\n", data->map[i]);
@@ -361,89 +369,160 @@ char** create_map_array(struct s_data* data)
 //     return (map);
 // }
 
-///////////////////////////////////////////////////////////////////////////
-bool	first_line_checker(char *line)
-{
-	int	i;
+// ///////////////////////////////////////////////////////////////////////////
+// bool	first_line_checker(char *line)
+// {
+// 	int	i;
 
-	i = 0;
-	while (line[i] != '\0')
-	{
-		if (line[i] != '1' && line[i] != ' ')
-			return (false);
-		i++;
-	}
-	return (true);
+// 	i = 0;
+// 	while (line[i] != '\0')
+// 	{
+// 		if (line[i] != '1' && line[i] != ' ')
+// 			return (false);
+// 		i++;
+// 	}
+// 	return (true);
+// }
+
+// bool	last_line_checker(char *line)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (line[i] != '\0')
+// 	{
+// 		if (line[i] != '1' && line[i] != ' ')
+// 			return (false);
+// 		i++;
+// 	}
+// 	return (true);
+// }
+
+// bool	line_checker(char *prev_line, char *line, char *next_line)
+// {
+// 	int	j;
+
+// 	j = 0;
+// 	while (line[j] != '\0')
+// 	{
+// 		if (line[j] == '0')
+// 		{
+// 			if (line[j + 1] == ' ' || line[j - 1] == ' '
+// 				|| prev_line[j] == ' ' || next_line[j] == ' ')
+// 				return (false);
+// 		}
+// 		j++;
+// 	}
+// 	return (true);
+// }
+
+// void	init_vars(struct s_map_list **map, struct s_map_list **tmp,
+// 					struct s_map_list **prev_line, struct s_map_list **next_line)
+// {
+// 	*tmp = *map;
+// 	if ((*tmp)->next)
+// 		*next_line = (*tmp)->next;
+// 	*prev_line = *map;
+// }
+
+// bool	map_check(struct s_map_list *map, int i)
+// {
+// 	struct s_map_list	*tmp;
+// 	struct s_map_list	*prev_line;
+// 	struct s_map_list	*next_line;
+
+// 	init_vars(&map, &tmp, &prev_line, &next_line);
+// 	while (tmp != NULL)
+// 	{
+// 		if (i == 0 && first_line_checker(tmp->line) == false)
+// 			return (false);
+// 		else if (tmp->next == NULL)
+// 		{
+// 			if (last_line_checker(tmp->line) == false)
+// 				return (false);
+// 		}
+// 		else if (!line_checker(prev_line->line, tmp->line, next_line->line))
+// 			return (false);
+// 		prev_line = tmp;
+// 		tmp = tmp->next;
+// 		if (tmp)
+// 			next_line = tmp->next;
+// 		i++;
+// 	}
+// 	return (true);
+// }
+// ///////////////////////////////////////////////////////////////////////////
+
+
+
+bool first_line_checker(char *line) {
+    int i = 0;
+    while (line[i] != '\0') {
+        if (line[i] != '1' && line[i] != ' ')
+            return false;
+        i++;
+    }
+    return true;
 }
 
-bool	last_line_checker(char *line)
-{
-	int	i;
-
-	i = 0;
-	while (line[i] != '\0')
-	{
-		if (line[i] != '1' && line[i] != ' ')
-			return (false);
-		i++;
-	}
-	return (true);
+bool last_line_checker(char *line) {
+    int i = 0;
+    while (line[i] != '\0') {
+        if (line[i] != '1' && line[i] != ' ')
+            return false;
+        i++;
+    }
+    return true;
 }
 
-bool	line_checker(char *prev_line, char *line, char *next_line)
-{
-	int	j;
-
-	j = 0;
-	while (line[j] != '\0')
-	{
-		if (line[j] == '0')
-		{
-			if (line[j + 1] == ' ' || line[j - 1] == ' '
-				|| prev_line[j] == ' ' || next_line[j] == ' ')
-				return (false);
-		}
-		j++;
-	}
-	return (true);
+bool line_checker(char *prev_line, char *line, char *next_line, int width) {
+    int j = 0;
+    (void)width;
+    while (line[j] != '\0') {
+        if (line[j] == '0') {
+            if (line[j + 1] == ' ' || line[j - 1] == ' '
+                || prev_line[j] == ' ' || next_line[j] == ' ')
+                return false;
+        }
+        j++;
+    }
+    return true;
 }
 
-void	init_vars(struct s_map_list **map, struct s_map_list **tmp,
-					struct s_map_list **prev_line, struct s_map_list **next_line)
-{
-	*tmp = *map;
-	if ((*tmp)->next)
-		*next_line = (*tmp)->next;
-	*prev_line = *map;
+bool map_check(char **map, int height, int width) {
+    for (int i = 0; i < height; i++) {
+        if (i == 0 && !first_line_checker(map[i]))
+            return false;
+        else if (i == height - 1 && !last_line_checker(map[i]))
+            return false;
+        else if (i > 0 && i < height - 1 && !line_checker(map[i - 1], map[i], map[i + 1], width))
+            return false;
+    }
+    return true;
 }
 
-bool	map_check(struct s_map_list *map, int i)
-{
-	struct s_map_list	*tmp;
-	struct s_map_list	*prev_line;
-	struct s_map_list	*next_line;
 
-	init_vars(&map, &tmp, &prev_line, &next_line);
-	while (tmp != NULL)
-	{
-		if (i == 0 && first_line_checker(tmp->line) == false)
-			return (false);
-		else if (tmp->next == NULL)
-		{
-			if (last_line_checker(tmp->line) == false)
-				return (false);
-		}
-		else if (!line_checker(prev_line->line, tmp->line, next_line->line))
-			return (false);
-		prev_line = tmp;
-		tmp = tmp->next;
-		if (tmp)
-			next_line = tmp->next;
-		i++;
-	}
-	return (true);
+int **map_to_int_array(char **map, int height, int width) {
+    int **int_map = (int **) malloc(height * sizeof(int *));
+    for (int i = 0; i < height; i++) {
+        int_map[i] = (int *) malloc(width * sizeof(int));
+        for (int j = 0; j < width; j++) {
+            if (map[i][j] == ' ')
+                int_map[i][j] = 2;
+            else if (map[i][j] == 'N')
+                int_map[i][j] = 3;
+            else
+                int_map[i][j] = map[i][j] - '0';
+        }
+    }
+    return int_map;
 }
-///////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
 
 bool    data_create(struct s_data *data, char *file_map)
 {
@@ -475,9 +554,12 @@ bool    data_create(struct s_data *data, char *file_map)
         // printf("The first node is :%s\n", data->map_list->line);
         line = newline_strip(get_next_line(data->map_fd));
     }
-    if (map_check(data->map_list, 0) == false)
-        raise_error(INVALID_MAP);
+    // if (map_check(data->map_list, 0) == false)
+    //     raise_error(INVALID_MAP);
     data->map = create_map_array(data);
+    if (map_check(data->map, data->height, data->width) == false)
+        raise_error(INVALID_MAP);
+    data->map_int = map_to_int_array(data->map, data->height, data->width);
     print_s_data(data);
     return (true);
 }
