@@ -1,180 +1,9 @@
 #include "cub3d.h"
 
-
-
-
-
-
-
-
-
-
-bool    texture_valid(char *str)
-{
-    if (str != NULL && access(str, F_OK) != -1)
-        return (true);
-    return (false);
-}
-
-bool    ft_str_is_numeric(char *str)
-{
-	int	i;
-
-	i = -1;
-	while (str[++i])
-		if (ft_isdigit(str[i]) == false)
-			return (false);
-	return (true);
-}
-
-bool    color_valid(char *color)
-{
-    char **rgb;
-    int i;
-
-    i = 0;
-    printf("The color is : %s\n", color);
-    rgb = ft_split(color, ',');
-    while (i < 3)
-    {
-        printf("The rgb is : %s\n", rgb[i]);
-        if (rgb[i] == NULL || ft_str_is_numeric(rgb[i]) == false)
-        {
-        	free_split(rgb);
-        	return (false);
-        }
-        else if (ft_atoi(rgb[i]) < 0 && ft_atoi(rgb[i]) > 255)
-        {
-        	free_split(rgb);
-            return (false);
-        }
-        i++;
-    }
-    free_split(rgb);
-    return (true);
-}
-
-unsigned char    *scrap_colors(char *color)
-{
-    char            **rgb;
-    unsigned char   *colors;
-
-    rgb = ft_split(color, ',');
-    colors = malloc(sizeof(char) * 4);
-    // printf("The first color is : %d\n", ft_atoi(rgb[0]));
-    colors[0] = ft_atoi(rgb[0]);
-    colors[1] = ft_atoi(rgb[1]);
-    colors[2] = ft_atoi(rgb[2]);
-    colors[3] = '\0';
-    return (colors);
-}
-
-int
-	cnt_words(char *str, char delim)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (str[i] != 0)
-	{
-		if ((str[i] != delim && str[i + 1] == delim)
-			|| (str[i] != delim && str[i + 1] == 0))
-			j++;
-		i++;
-	}
-	return (j);
-}
-
-int
-	cub_strcmp(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	if (s1 == NULL || s2 == NULL)
-		return (1);
-	while ((s1[i] != '\0' || s2[i] != '\0') && s1[i] == s2[i])
-		i++;
-	if (s1[i] == s2[i])
-		return (0);
-	else if (s1[i] < s2[i])
-		return (-1);
-	else
-		return (1);
-}
-
-
-
-void
-	cub_lst_add_back(struct s_map_list **lst, struct s_map_list *new)
-{
-	struct s_map_list	*tmp;
-
-	if (new == NULL)
-		return ;
-	if (*lst)
-	{
-		tmp = *lst;
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = new;
-	}
-	else
-		*lst = new;
-}
-
-struct s_map_list *create_node(char *str)
-{
-    struct s_map_list *node;
-
-    node = malloc(sizeof(struct s_map_list));
-    node->line = ft_strdup(str);
-    node->next = NULL;
-    return (node);
-}
-
-struct s_map_list	*ft_lstlast(struct s_map_list *lst)
-{
-	if (lst == NULL)
-		return (NULL);
-	while (lst != NULL)
-	{
-		if (lst -> next == 0)
-			return (lst);
-		lst = lst -> next;
-	}
-	return (NULL);
-}
-
-void    map_list_save(struct s_map_list **list, struct s_map_list *node)
-{
-	struct s_map_list	*last;
-
-	if (list == NULL || node == NULL)
-		return ;
-	if (*list == NULL)
-	{
-		*list = node;
-		return ;
-	}
-	last = ft_lstlast(*list);
-	last->next = node;
-}
-
 // void    map_list_save(struct s_data *data, char *line)
 // {
     
 // }
-
-void    update_w_h(struct s_data *data, char *line)
-{
-    data->height++;
-    if (ft_strlen(line) > (size_t)data->width)
-        data->width = ft_strlen(line);
-}
-
 
 /*
 char    **check_map(struct s_data *data, char **map)
@@ -284,23 +113,30 @@ bool	check_map(struct s_map_list *map, int i)
 */
 
 
+// void    map_list_save(struct s_map_list **list, struct s_map_list *node)
+// {
+// 	struct s_map_list	*last;
 
+// 	if (list == NULL || node == NULL)
+// 		return ;
+// 	if (*list == NULL)
+// 	{
+// 		*list = node;
+// 		return ;
+// 	}
+// 	last = ft_lstlast(*list);
+// 	last->next = node;
+// }
 
-
-
-
-
-
-void    draw()
-{
-
-}
-
-void    data_destroy(struct s_data *data)
-{
-    close(data->map_fd);
-    // FREE THE COLORS
-    // try to remove everthing alloced (map and the textures strings if allocated)
-}
-
-
+// struct s_map_list	*ft_lstlast(struct s_map_list *lst)
+// {
+// 	if (lst == NULL)
+// 		return (NULL);
+// 	while (lst != NULL)
+// 	{
+// 		if (lst -> next == 0)
+// 			return (lst);
+// 		lst = lst -> next;
+// 	}
+// 	return (NULL);
+// }

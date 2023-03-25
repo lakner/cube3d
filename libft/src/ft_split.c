@@ -13,7 +13,7 @@
 #include "libft.h"
 
 static int
-	lft_cnt_words(char *str, char delim)
+	lft_u_count_words(char *str, char delim)
 {
 	int	i;
 	int	j;
@@ -86,7 +86,7 @@ char
 
 	if (!s)
 		return (NULL);
-	buf = (char **)malloc(sizeof(char *) * (lft_cnt_words((char *)s, c) + 1));
+	buf = (char **)malloc(sizeof(char *) * (lft_u_count_words((char *)s, c) + 1));
 	if (!buf)
 		return (NULL);
 	return (lft_split_words(s, c, buf));

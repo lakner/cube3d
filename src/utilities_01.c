@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   utilities_01.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/25 05:06:41 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/25 06:26:56 by dcharala         ###   ########.fr       */
+/*   Created: 2023/03/25 06:29:04 by dcharala          #+#    #+#             */
+/*   Updated: 2023/03/25 06:29:31 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 void
-	free_split(char **tokens)
+	u_lst_add_back(struct s_map_list **lst, struct s_map_list *new)
 {
-	char	**tmp;
+	struct s_map_list	*tmp;
 
-	tmp = tokens;
-	while (*tmp)
-		free(*tmp++);
-	free(tokens);
+	if (new == NULL)
+		return ;
+	if (*lst)
+	{
+		tmp = *lst;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
+	}
+	else
+		*lst = new;
 }
 
-void
-	data_destroy(struct s_data *data)
+struct s_map_list
+	*u_create_node(char *str)
 {
-	close(data->map_fd);
-	// FREE THE COLORS
-	// // try to remove everthing alloced (map and the textures strings if allocated)
+	struct s_map_list	*node;
+
+	node = malloc(sizeof(struct s_map_list));
+	node->line = ft_strdup(str);
+	node->next = NULL;
+	return (node);
 }
