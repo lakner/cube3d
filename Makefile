@@ -6,12 +6,12 @@
 #    By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 01:23:39 by dcharala          #+#    #+#              #
-#    Updated: 2023/03/04 18:10:06 by dcharala         ###   ########.fr        #
+#    Updated: 2023/03/25 02:31:52 by dcharala         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # tool macros
-CXX := gcc
+CXX := clang
 CXXFLAGS := -Wall -Wextra -Werror
 
 # path macros

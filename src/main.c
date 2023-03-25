@@ -6,7 +6,7 @@
 /*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:37:50 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/11 21:29:56 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/25 00:46:55 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -455,47 +455,62 @@ char** create_map_array(struct s_data* data)
 
 
 
-bool first_line_checker(char *line) {
-    int i = 0;
-    while (line[i] != '\0') {
+bool
+	first_line_checker(char *line)
+{
+	int i;
+
+	i = 0;
+    while (line[i] != '\0')
+    {
         if (line[i] != '1' && line[i] != ' ')
             return false;
         i++;
     }
-    return true;
+    return (true);
 }
 
-bool last_line_checker(char *line) {
-    int i = 0;
-    while (line[i] != '\0') {
+bool
+	last_line_checker(char *line)
+{
+	int i;
+
+	i = 0;
+    while (line[i] != '\0')
+    {
         if (line[i] != '1' && line[i] != ' ')
             return false;
         i++;
     }
-    return true;
+    return (true);
 }
 
-bool line_checker(char *prev_line, char *line, char *next_line, int width) {
-    int j = 0;
-    (void)width;
-    while (line[j] != '\0') {
-        if (line[j] == '0') {
-            if (line[j + 1] == ' ' || line[j - 1] == ' '
-                || prev_line[j] == ' ' || next_line[j] == ' ')
-                return false;
+bool
+	line_checker(char *prev_line, char *line, char *next_line)
+{
+	int j;
+
+	j = 0;
+    while (line[j] != '\0')
+    {
+    	if (line[j] == '0')
+    	{
+    		if (line[j + 1] == ' ' || line[j - 1] == ' '
+    			|| prev_line[j] == ' ' || next_line[j] == ' ')
+    			return (false);
         }
         j++;
     }
-    return true;
+    return (true);
 }
 
-bool map_check(char **map, int height, int width) {
+bool map_check(char **map, int height) {
     for (int i = 0; i < height; i++) {
         if (i == 0 && !first_line_checker(map[i]))
             return false;
         else if (i == height - 1 && !last_line_checker(map[i]))
             return false;
-        else if (i > 0 && i < height - 1 && !line_checker(map[i - 1], map[i], map[i + 1], width))
+        else if (i > 0 && i < height - 1 && !line_checker(map[i - 1], map[i], map[i + 1]))
             return false;
     }
     return true;
@@ -557,7 +572,7 @@ bool    data_create(struct s_data *data, char *file_map)
     // if (map_check(data->map_list, 0) == false)
     //     raise_error(INVALID_MAP);
     data->map = create_map_array(data);
-    if (map_check(data->map, data->height, data->width) == false)
+    if (map_check(data->map, data->height) == false)
         raise_error(INVALID_MAP);
     data->map_int = map_to_int_array(data->map, data->height, data->width);
     print_s_data(data);
