@@ -28,8 +28,22 @@ bool				line_start_valid(char *str);
 bool				line_map(struct s_data *data, char *str);
 bool				line_is_empty(struct s_data *data, char *str);
 
-/* tmp.c */
+/* free.c */
 void				free_split(char **tokens);
+
+/* handle_maps.c */
+void				handle_maps(struct s_data *data);
+char				**create_map_array(struct s_data *data);
+void				fill_map_array(char **map_array, struct s_data *data);
+int					**map_to_int_array(char **map, int height, int width);
+
+/* check_map.c */
+bool				check_first_line(char *line);
+bool				check_last_line(char *line);
+bool				check_line(char *prev_line, char *line, char *next_line);
+bool				check_map(char **map, int height);
+
+/* tmp.c */
 bool				texture_valid(char *str);
 bool				ft_str_is_numeric(char *str);
 bool				color_valid(char *color);
@@ -44,13 +58,7 @@ struct s_map_list	*ft_lstlast(struct s_map_list *lst);
 void				map_list_save(struct s_map_list **list,
 						struct s_map_list *node);
 void				update_w_h(struct s_data *data, char *line);
-char				**create_map_array(struct s_data *data);
-bool				first_line_checker(char *line);
-bool				last_line_checker(char *line);
-bool				line_checker(char *prev_line, char *line, char *next_line);
-bool				map_check(char **map, int height);
-int					**map_to_int_array(char **map, int height, int width);
-void				handle_maps(struct s_data *data);
+
 void				draw(void);
 void				data_destroy(struct s_data *data);
 
