@@ -43,7 +43,7 @@ void
 
 	tokens = ft_split(str, ' ');
 	if (u_count_words(str, ' ') > 2)
-		raise_error(TOO_MANY_ARGS_FOR_PATH);
+		raise_error(TOO_MANY_ARGS_PATH);
 	if (!u_strcmp(tokens[0], "NO") && texture_valid(tokens[1]))
 		data->no_fd = open(tokens[1], O_RDONLY);
 	else if (!u_strcmp(tokens[0], "SO") && texture_valid(tokens[1]))
