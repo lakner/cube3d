@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_maps.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 05:09:48 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/25 05:31:15 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/25 16:57:30 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void
 	handle_maps(struct s_data *data)
 {
 	data->map = create_map_array(data);
-	if (check_map(data->map, data->height) == false)
+	if (check_map(data->map, data->height, data->width) == false)
 		raise_error(INVALID_MAP);
 	data->map_int = map_to_int_array(data->map, data->height, data->width);
 	print_s_data(data);

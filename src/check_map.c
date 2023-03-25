@@ -6,14 +6,14 @@
 /*   By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 05:32:44 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/25 05:54:36 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:23:19 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 bool
-	check_map(char **map, int height)
+	check_map(char **map, int height, int width)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ bool
 	{
 		if (i == 0)
 		{
-			if (!check_first_line(map[i]))
+			if (!check_first_line(map[i], width))
 				return (false);
 		}
 		else if (i == height - 1)
@@ -32,7 +32,7 @@ bool
 		}
 		else
 		{
-			if (!check_line(map[i - 1], map[i], map[i + 1]))
+			if (!check_line(map[i - 1], map[i], map[i + 1], width))
 				return (false);
 		}
 		i++;
@@ -41,12 +41,12 @@ bool
 }
 
 bool
-	check_first_line(char *line)
+	check_first_line(char *line, int width)
 {
 	int	i;
 
 	i = 0;
-	while (line[i] != '\0')
+	while (i < width)
 	{
 		if (line[i] != '1' && line[i] != ' ')
 			return (false);
@@ -71,12 +71,12 @@ bool
 }
 
 bool
-	check_line(char *prev_line, char *line, char *next_line)
+	check_line(char *prev_line, char *line, char *next_line, int width)
 {
 	int	j;
 
 	j = 0;
-	while (line[j] != '\0')
+	while (j < width)
 	{
 		if (line[j] == '0')
 		{

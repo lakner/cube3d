@@ -6,7 +6,7 @@
 /*   By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 03:39:00 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/25 07:04:08 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:23:20 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,11 @@ void				fill_map_array(char **map_array, struct s_data *data);
 int					**map_to_int_array(char **map, int height, int width);
 
 /* check_map.c */
-bool				check_first_line(char *line);
+bool				check_first_line(char *line, int width);
 bool				check_last_line(char *line);
-bool				check_line(char *prev_line, char *line, char *next_line);
-bool				check_map(char **map, int height);
+bool				check_line(char *prev_line, char *line, char *next_line,
+						int width);
+bool				check_map(char **map, int height, int width);
 
 /* handle_textures.c */
 bool				texture_valid(char *str);
