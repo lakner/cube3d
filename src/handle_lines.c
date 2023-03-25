@@ -42,19 +42,19 @@ void
 	char	**tokens;
 
 	tokens = ft_split(str, ' ');
-	if (cnt_words(str, ' ') > 2)
+	if (u_count_words(str, ' ') > 2)
 		raise_error(TOO_MANY_ARGS_FOR_PATH);
-	if (!cub_strcmp(tokens[0], "NO") && texture_valid(tokens[1]))
+	if (!u_strcmp(tokens[0], "NO") && texture_valid(tokens[1]))
 		data->no_fd = open(tokens[1], O_RDONLY);
-	else if (!cub_strcmp(tokens[0], "SO") && texture_valid(tokens[1]))
+	else if (!u_strcmp(tokens[0], "SO") && texture_valid(tokens[1]))
 		data->so_fd = open(tokens[1], O_RDONLY);
-	else if (!cub_strcmp(tokens[0], "WE") && texture_valid(tokens[1]))
+	else if (!u_strcmp(tokens[0], "WE") && texture_valid(tokens[1]))
 		data->we_fd = open(tokens[1], O_RDONLY);
-	else if (!cub_strcmp(tokens[0], "EA") && texture_valid(tokens[1]))
+	else if (!u_strcmp(tokens[0], "EA") && texture_valid(tokens[1]))
 		data->ea_fd = open(tokens[1], O_RDONLY);
-	else if (!cub_strcmp(tokens[0], "F") && color_valid(tokens[1]))
+	else if (!u_strcmp(tokens[0], "F") && color_valid(tokens[1]))
 		data->f_colors = scrap_colors(tokens[1]);
-	else if (!cub_strcmp(tokens[0], "C") && color_valid(tokens[1]))
+	else if (!u_strcmp(tokens[0], "C") && color_valid(tokens[1]))
 		data->c_colors = scrap_colors(tokens[1]);
 	else
 		raise_error(COLOR_INVALID);

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_data.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/25 06:00:33 by dcharala          #+#    #+#             */
+/*   Updated: 2023/03/25 06:01:05 by dcharala         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "cub3d.h"
 
@@ -16,8 +27,8 @@ bool
 		else if (line_map(data, line) == true)
 		{
 			update_w_h(data, line);
-			new = create_node(line);
-			cub_lst_add_back(&data->map_list, new);
+			new = u_create_node(line);
+			u_lst_add_back(&data->map_list, new);
 		}
 		else if (line_is_empty(data, line) == false)
 			;
@@ -39,4 +50,12 @@ void
 	data->width = 0;
 	data->height = 0;
 	data->map_list = NULL; // uninitialized causes SIGSEG on Linux
+}
+
+void
+	update_w_h(struct s_data *data, char *line)
+{
+	data->height++;
+	if (ft_strlen(line) > (size_t)data->width)
+		data->width = ft_strlen(line);
 }
