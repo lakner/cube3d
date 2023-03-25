@@ -26,7 +26,7 @@ bool
 		free(line);
 		line = strip_newline(get_next_line(data->map_fd));
 	}
-		/* if (map_check(data->map_list, 0) == false) */
+		/* if (check_map(data->map_list, 0) == false) */
 		/* 	raise_error(INVALID_MAP); */
 	handle_maps(data);
 	return (true);

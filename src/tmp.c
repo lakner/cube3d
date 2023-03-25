@@ -2,14 +2,7 @@
 
 
 
-void free_split(char **tokens)
-{
-    char **tmp = tokens;
-    
-    while (*tmp)
-        free(*tmp++);
-    free(tokens);
-}
+
 
 
 
@@ -182,32 +175,7 @@ void    update_w_h(struct s_data *data, char *line)
         data->width = ft_strlen(line);
 }
 
-char** create_map_array(struct s_data* data) 
-{
-    char** map_array = (char**) malloc(data->height * sizeof(char*));
-    int i = 0;
-    while (i < data->height) {
-        map_array[i] = (char*) malloc(data->width * sizeof(char));
-        ft_memset(map_array[i], ' ', data->width); // fill array with empty spaces
-        i++;
-    }
 
-    struct s_map_list* current = data->map_list;
-    int row = 0;
-    while (current != NULL && row < data->height)
-    {
-        int col = 0;
-        int line_len = ft_strlen(current->line);
-        while (col < line_len && col < data->width) {
-            map_array[row][col] = current->line[col];
-            col++;
-        }
-        current = current->next;
-        row++;
-    }
-
-    return (map_array);
-}
 /*
 char    **check_map(struct s_data *data, char **map)
 {
@@ -231,7 +199,7 @@ char    **check_map(struct s_data *data, char **map)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-bool	first_line_checker(char *line)
+bool	check_first_line(char *line)
 {
 	int	i;
 
@@ -245,7 +213,7 @@ bool	first_line_checker(char *line)
 	return (true);
 }
 
-bool	last_line_checker(char *line)
+bool	check_last_line(char *line)
 {
 	int	i;
 
@@ -259,7 +227,7 @@ bool	last_line_checker(char *line)
 	return (true);
 }
 
-bool	line_checker(char *prev_line, char *line, char *next_line)
+bool	check_line(char *prev_line, char *line, char *next_line)
 {
 	int	j;
 
@@ -286,7 +254,7 @@ void	init_vars(struct s_map_list **map, struct s_map_list **tmp,
 	*prev_line = *map;
 }
 
-bool	map_check(struct s_map_list *map, int i)
+bool	check_map(struct s_map_list *map, int i)
 {
 	struct s_map_list	*tmp;
 	struct s_map_list	*prev_line;
@@ -295,14 +263,14 @@ bool	map_check(struct s_map_list *map, int i)
 	init_vars(&map, &tmp, &prev_line, &next_line);
 	while (tmp != NULL)
 	{
-		if (i == 0 && first_line_checker(tmp->line) == false)
+		if (i == 0 && check_first_line(tmp->line) == false)
 			return (false);
 		else if (tmp->next == NULL)
 		{
-			if (last_line_checker(tmp->line) == false)
+			if (check_last_line(tmp->line) == false)
 				return (false);
 		}
-		else if (!line_checker(prev_line->line, tmp->line, next_line->line))
+		else if (!check_line(prev_line->line, tmp->line, next_line->line))
 			return (false);
 		prev_line = tmp;
 		tmp = tmp->next;
@@ -316,92 +284,9 @@ bool	map_check(struct s_map_list *map, int i)
 */
 
 
-bool
-	first_line_checker(char *line)
-{
-	int i;
 
-	i = 0;
-    while (line[i] != '\0')
-    {
-        if (line[i] != '1' && line[i] != ' ')
-            return false;
-        i++;
-    }
-    return (true);
-}
 
-bool
-	last_line_checker(char *line)
-{
-	int i;
 
-	i = 0;
-    while (line[i] != '\0')
-    {
-        if (line[i] != '1' && line[i] != ' ')
-            return false;
-        i++;
-    }
-    return (true);
-}
-
-bool
-	line_checker(char *prev_line, char *line, char *next_line)
-{
-	int j;
-
-	j = 0;
-    while (line[j] != '\0')
-    {
-    	if (line[j] == '0')
-    	{
-    		if (line[j + 1] == ' ' || line[j - 1] == ' '
-    			|| prev_line[j] == ' ' || next_line[j] == ' ')
-    			return (false);
-        }
-        j++;
-    }
-    return (true);
-}
-
-bool map_check(char **map, int height) {
-    for (int i = 0; i < height; i++) {
-        if (i == 0 && !first_line_checker(map[i]))
-            return false;
-        else if (i == height - 1 && !last_line_checker(map[i]))
-            return false;
-        else if (i > 0 && i < height - 1 && !line_checker(map[i - 1], map[i], map[i + 1]))
-            return false;
-    }
-    return true;
-}
-
-int **map_to_int_array(char **map, int height, int width) {
-    int **int_map = (int **) malloc(height * sizeof(int *));
-    for (int i = 0; i < height; i++) {
-        int_map[i] = (int *) malloc(width * sizeof(int));
-        for (int j = 0; j < width; j++) {
-            if (map[i][j] == ' ')
-                int_map[i][j] = 2;
-            else if (map[i][j] == 'N')
-                int_map[i][j] = 3;
-            else
-                int_map[i][j] = map[i][j] - '0';
-        }
-    }
-    return int_map;
-}
-
-void
-	handle_maps(struct s_data *data)
-{
-	data->map = create_map_array(data);
-	if (map_check(data->map, data->height) == false)
-		raise_error(INVALID_MAP);
-	data->map_int = map_to_int_array(data->map, data->height, data->width);
-	print_s_data(data);
-}
 
 
 
