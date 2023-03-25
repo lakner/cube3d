@@ -6,7 +6,7 @@
 /*   By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 06:30:38 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/25 06:32:19 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:19:30 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ bool
 		i++;
 	}
 	free_split(rgb);
+	printf("The color is : %x\n", rgb_to_hex((unsigned char *)rgb));
 	return (true);
 }
 
@@ -59,5 +60,6 @@ unsigned char*
 int	inline
 	rgb_to_hex(unsigned char *colors)
 {
-	return (256 * 256 * colors[0] + 256 * colors[1] + colors[2]);
+	return (256 * 256 * 256 * colors[0] + 256 * 256 * colors[1]
+			+ 256 * colors[2] + 0xff);
 }
