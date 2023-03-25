@@ -6,61 +6,57 @@
 /*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:37:50 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/25 00:46:55 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/25 02:40:34 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void print_list(struct s_map_list* head)
+void
+	print_list(struct s_map_list* head)
 {
-    struct s_map_list* current = head;
-    while (current != NULL)
-    {
-        printf("The line is %s\n", current->line);
-        current = current->next;
-    }
+	struct s_map_list* current = head;
+	while (current != NULL)
+	{
+		printf("The line is %s\n", current->line);
+		current = current->next;
+	}
 }
 
-void print_s_data(struct s_data* data)
+void
+	print_s_data(struct s_data* data)
 {
-    printf("map_fd: %d\n", data->map_fd);
-    printf("NO_fd: %d\n", data->NO_fd);
-    printf("SO_fd: %d\n", data->SO_fd);
-    printf("WE_fd: %d\n", data->WE_fd);
-    printf("EA_fd: %d\n", data->EA_fd);
-    printf("F_colors: %d,%d,%d\n", data->F_colors[0], data->F_colors[1], data->F_colors[2]);
-    printf("C_colors: %d,%d,%d\n", data->C_colors[0], data->C_colors[1], data->C_colors[2]);
-    // printf("F_color: %lld\n", data->F_color);
-    // printf("C_color: %lld\n", data->C_color);
-    printf("map_found: %s\n", data->map_found ? "true" : "false");
-
-
-    printf("The w and the h are : %d | %d\n", data->width, data->height);
-    print_list(data->map_list);
-    printf("The fucking map is : \n");
-    for (int i = 0; i < data->height; i++) {
-        for (int j = 0; j < data->width; j++) {
-            printf("%c ", data->map[i][j]);
-        }
-        printf("\n");
-    }
-
-    printf("The fucking int map is : \n");
-    for (int i = 0; i < data->height; i++) {
-        for (int j = 0; j < data->width; j++) {
-            printf("%d ", data->map_int[i][j]);
-        }
-        printf("\n");
-    }
-
-    // printf("map:\n");
-    // for (int i = 0; data->map[i] != NULL; i++) {
-    //     printf("%s\n", data->map[i]);
-    // }
+	printf("map_fd: %d\n", data->map_fd);
+	printf("NO_fd: %d\n", data->NO_fd);
+	printf("SO_fd: %d\n", data->SO_fd);
+	printf("WE_fd: %d\n", data->WE_fd);
+	printf("EA_fd: %d\n", data->EA_fd);
+	printf("F_colors: %d,%d,%d\n", data->F_colors[0], data->F_colors[1], data->F_colors[2]);
+	printf("C_colors: %d,%d,%d\n", data->C_colors[0], data->C_colors[1], data->C_colors[2]);
+	// printf("F_color: %lld\n", data->F_color);
+	// printf("C_color: %lld\n", data->C_color);
+	printf("map_found: %s\n", data->map_found ? "true" : "false");
+	printf("The w and the h are : %d | %d\n", data->width, data->height);
+	print_list(data->map_list);
+	printf("The fucking map is : \n");
+	for (int i = 0; i < data->height; i++)
+	{
+		for (int j = 0; j < data->width; j++)
+		{
+			printf("%c ", data->map[i][j]);
+		}
+	printf("\n");
+	}
+	printf("The fucking int map is : \n");
+	for (int i = 0; i < data->height; i++)
+	{
+		for (int j = 0; j < data->width; j++)
+		{
+			printf("%d ", data->map_int[i][j]);
+		}
+		printf("\n");
+	}
 }
-
-
 
 char* newline_strip(char* line)
 {
@@ -80,6 +76,8 @@ void    raise_error(char *err)
 
 bool    user_input(int argc, char **argv)
 {
+	if (argc == 1)
+		raise_error(TOO_FEW_ARGS);
 	if (argc > 2)
 		raise_error(TOO_MANY_ARGS);
     if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".cub", 4))

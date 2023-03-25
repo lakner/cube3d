@@ -14,18 +14,10 @@
 #define CUB3D_H
 
 #include "../libft/include/libft.h"
+#include "err_glossary.h"
 #include <stdbool.h>
 
-// macros for error
-#define WRONG_INPUT "WRONG_INPUT\n"
-#define MAP_ERROR "MAP_ERROR\n"
-#define COLOR_INVALID "COLOR_INVALID\n"
-#define TEXTURE_INVALID "TEXTURE INVALID\n"
-#define TOO_MANY_ARGS_FOR_PATH "TOO_MANY_ARGS_FOR_PATH\n"
-#define TOO_MANY_ARGS "TOO_MANY_ARGS\n"
-#define MAP_NOT_FOUND "MAP_NOT_FOUND\n"
-#define NOT_DOT_CUB "NOT_DOT_CUB\n"
-#define INVALID_MAP "INVALID MAP\n"
+
 
 struct s_map_list
 {
