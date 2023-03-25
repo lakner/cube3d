@@ -13,15 +13,14 @@
 #ifndef ERR_GLOSSARY_H
 # define ERR_GLOSSARY_H
 
-# define WRONG_INPUT "WRONG_INPUT\n"
-# define MAP_ERROR "MAP_ERROR\n"
-# define COLOR_INVALID "COLOR_INVALID\n"
-# define TEXTURE_INVALID "TEXTURE INVALID\n"
-# define TOO_MANY_ARGS_FOR_PATH "TOO_MANY_ARGS_FOR_PATH\n"
-# define TOO_MANY_ARGS "TOO_MANY_ARGS\n"
-# define TOO_FEW_ARGS "TOO_FEW_ARGS\n"
-# define MAP_NOT_FOUND "MAP_NOT_FOUND\n"
-# define NOT_DOT_CUB "NOT_DOT_CUB\n"
-# define INVALID_MAP "INVALID MAP\n"
+# define MAP_ERROR "An error occured while trying to read the map.\n"
+# define COLOR_INVALID "Invalid color.\n"
+# define TEXTURE_INVALID "Invalid texture.\n"
+# define TOO_MANY_ARGS_PATH "Too many arguments. Expenting path to texture.\n"
+# define TOO_MANY_ARGS "Too many arguments.\nTry: ./cub3D maps/test.cub\n"
+# define TOO_FEW_ARGS "Too few arguments.\nTry: ./cub3D maps/test.cub\n"
+# define MAP_NOT_FOUND "Map not found.\n"
+# define NOT_DOT_CUB "Invalid map file extension.\nAccepting only .cub files.\n"
+# define INVALID_MAP "Invalid map.\n"
 
 #endif

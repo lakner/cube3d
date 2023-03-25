@@ -6,7 +6,7 @@
 /*   By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 03:39:00 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/25 04:13:13 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/25 07:04:08 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ bool				texture_valid(char *str);
 /* handle_colors.c */
 bool				color_valid(char *color);
 unsigned char		*scrap_colors(char *color);
+int					rgb_to_hex(unsigned char *colors);
 
 /* utilities_00.c */
 bool				u_str_is_numeric(char *str);

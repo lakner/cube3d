@@ -55,3 +55,9 @@ unsigned char*
 	colors[3] = '\0';
 	return (colors);
 }
+
+int	inline
+	rgb_to_hex(unsigned char *colors)
+{
+	return (256 * 256 * colors[0] + 256 * colors[1] + colors[2]);
+}
