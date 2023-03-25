@@ -2,35 +2,6 @@
 
 
 
-char* newline_strip(char* line)
-{
-    int len = ft_strlen(line);
-    if (len > 0 && line[len-1] == '\n') {
-        line[len-1] = '\0';
-    }
-    return line;
-}
-
-void    raise_error(char *err)
-{
-    write(2, err, ft_strlen(err));
-    // maybe create a garbage collecor to remove the shit before you exit
-    exit(1);
-}
-
-bool    user_input(int argc, char **argv)
-{
-	if (argc == 1)
-		raise_error(TOO_FEW_ARGS);
-	if (argc > 2)
-		raise_error(TOO_MANY_ARGS);
-    if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".cub", 4))
-    	raise_error(NOT_DOT_CUB);
-    if (access(argv[1], R_OK) != 0)
-   	    raise_error(MAP_NOT_FOUND);
-	return (true);
-}
-
 void free_split(char **tokens)
 {
     char **tmp = tokens;
@@ -40,39 +11,10 @@ void free_split(char **tokens)
     free(tokens);
 }
 
-bool    line_start_valid(char *str)
-{
-    if (str[0] == 'N'
-        || str[0] == 'S'
-        || str[0] == 'W'
-        || str[0] == 'E'
-        || str[0] == 'F'
-        || str[0] == 'C')
-        return (true);
-    // else if (str[0] == '1' || str[0] == ' ')
-    // {
-    //     data->map_found = true;
-    //     return (true);
-    // }
-    return (false);
-}
 
-bool    line_map(struct s_data *data, char *str)
-{
-    if (str[0] == '1' || str[0] == ' ')
-    {
-        data->map_found = true;
-        return (true);
-    }
-    return (false);
-}
 
-bool    line_is_empty(struct s_data *data, char *str)
-{
-    if (data->map_found == true && str[0] == '\n')
-        return (true);
-    return (false);
-}
+
+
 
 bool    texture_valid(char *str)
 {
@@ -170,33 +112,10 @@ int
 		return (1);
 }
 
-void    data_line_save(struct s_data *data, char *str)
-{
-    char    **tokens;
 
-    tokens = ft_split(str, ' ');
-    if (cnt_words(str, ' ') > 2)
-        raise_error(TOO_MANY_ARGS_FOR_PATH);
-    if (!cub_strcmp(tokens[0], "NO") && texture_valid(tokens[1]))
-        data->no_fd = open(tokens[1], O_RDONLY);
-    else if (!cub_strcmp(tokens[0], "SO") && texture_valid(tokens[1]))
-        data->so_fd = open(tokens[1], O_RDONLY);
-    else if (!cub_strcmp(tokens[0], "WE") && texture_valid(tokens[1]))
-        data->we_fd = open(tokens[1], O_RDONLY);
-    else if (!cub_strcmp(tokens[0], "EA") && texture_valid(tokens[1]))
-        data->ea_fd = open(tokens[1], O_RDONLY);
-    else if (!cub_strcmp(tokens[0], "F") && color_valid(tokens[1]))
-        data->f_colors = scrap_colors(tokens[1]);
-    else if (!cub_strcmp(tokens[0], "C") && color_valid(tokens[1]))
-        data->c_colors = scrap_colors(tokens[1]);
-    else
-        // map data error
-        raise_error(COLOR_INVALID);
-    free_split(tokens);
-}
 
 void
-	ft_lstadd_back_ms(struct s_map_list **lst, struct s_map_list *new)
+	cub_lst_add_back(struct s_map_list **lst, struct s_map_list *new)
 {
 	struct s_map_list	*tmp;
 
@@ -484,45 +403,8 @@ void
 	print_s_data(data);
 }
 
-void
-	init_data(struct s_data *data, char *file_map)
-{
-	data->map_fd = open(file_map, O_RDONLY);
-	data->width = 0;
-	data->height = 0;
-	data->map_list = NULL; // uninitialized causes SIGSEG on Linux
-}
 
-bool
-	data_create(struct s_data *data, char *file_map)
-{
-	char				*line;
-	struct s_map_list	*new;
 
-	init_data(data, file_map);
-	line = newline_strip(get_next_line(data->map_fd));
-	while (line != NULL)
-	{
-		if (line_start_valid(line) == true)
-			data_line_save(data, line);
-		else if (line_map(data, line) == true)
-		{
-			update_w_h(data, line);
-			new = create_node(line);
-			ft_lstadd_back_ms(&data->map_list, new);
-		}
-		else if (line_is_empty(data, line) == false)
-			;
-		else
-			raise_error(MAP_ERROR);
-		free(line);
-		line = newline_strip(get_next_line(data->map_fd));
-	}
-		/* if (map_check(data->map_list, 0) == false) */
-		/* 	raise_error(INVALID_MAP); */
-	handle_maps(data);
-	return (true);
-}
 
 void    draw()
 {

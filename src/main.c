@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 
     if (user_input(argc, argv) == true)
     {
-        if (data_create(&data, argv[1]))
+        if (create_data(&data, argv[1]))
             draw();
         data_destroy(&data);
     }
