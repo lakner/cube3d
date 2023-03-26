@@ -37,7 +37,6 @@ bool
 		i++;
 	}
 	free_split(rgb);
-	printf("The color is : %x\n", rgb_to_hex((unsigned char *)rgb));
 	return (true);
 }
 
@@ -57,9 +56,11 @@ unsigned char*
 	return (colors);
 }
 
-int	inline
+int
 	rgb_to_hex(unsigned char *colors)
 {
-	return (256 * 256 * 256 * colors[0] + 256 * 256 * colors[1]
-			+ 256 * colors[2] + 0xff);
+	int	transparency;
+
+	transparency = 255;
+	return ((colors[0] << 24) + (colors[1]	<< 16) + (colors[2] << 8) + transparency);
 }
