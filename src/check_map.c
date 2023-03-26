@@ -60,7 +60,6 @@ bool
 {
 	int	i;
 
-	printf("Hi3\n");
 	i = 0;
 	while (i < width)
 	{
