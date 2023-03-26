@@ -6,13 +6,13 @@
 #    By: slakner <slakner@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 01:23:39 by dcharala          #+#    #+#              #
-#    Updated: 2023/03/16 21:27:43 by slakner          ###   ########.fr        #
+#    Updated: 2023/03/26 21:24:58 by dcharala         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # tool macros
 CXX := cc
-CXXFLAGS := -Wall -Wextra -Werror
+CXXFLAGS := -Wall -Wextra -Werror -g
 
 # path macros
 OBJ_PATH := obj
