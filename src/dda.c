@@ -65,7 +65,7 @@ double	dist_to_next_wall(t_img_data *data, t_ipoint map_sq, t_column *col)
 		{
 			col->dist_side.x += col->delta_side.x;
 			map_sq.x += stepdir(col->ray_dir).x;
-			if (data->map[map_sq.x][map_sq.y] > 0)
+			if (data->map[map_sq.y][map_sq.x] > 0)
 			{
 				return (wall_found(col, NS));
 			}
@@ -74,7 +74,7 @@ double	dist_to_next_wall(t_img_data *data, t_ipoint map_sq, t_column *col)
 		{
 			col->dist_side.y += col->delta_side.y;
 			map_sq.y += stepdir(col->ray_dir).y;
-			if (data->map[map_sq.x][map_sq.y] > 0)
+			if (data->map[map_sq.y][map_sq.x] > 0)
 				return (wall_found(col, EW));
 		}
 	}
