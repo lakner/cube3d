@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 03:39:00 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/25 04:09:17 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/26 18:26:49 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,19 @@ struct s_map_list
 	struct s_map_list	*next;
 };
 
-struct s_data
+typedef struct s_data
 {
 	int					width;
 	int					height;
 	int					map_fd;
-	int					no_fd;
-	int					so_fd;
-	int					we_fd;
-	int					ea_fd;
+	// int					no_fd;
+	// int					so_fd;
+	// int					we_fd;
+	// int					ea_fd;
+	char				*no_fn;
+	char				*so_fn;
+	char				*we_fn;
+	char				*ea_fn;
 	unsigned char		*f_colors;
 	unsigned char		*c_colors;
 	long long			f_color;

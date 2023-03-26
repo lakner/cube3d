@@ -74,14 +74,19 @@ t_img_data	init_img_data(t_data *data, mlx_t *mlx, mlx_image_t *img)
 	// {1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
 	// {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
 
-	img_data.texture[0]
-		= mlx_load_png("/Users/slakner/Projects/cube3d/LAVA.png");
-	img_data.texture[1]
-		= mlx_load_png("/Users/slakner/Projects/cube3d/BIGLEAVES.png");
-	img_data.texture[2]
-		= mlx_load_png("/Users/slakner/Projects/cube3d/DIRT.png");
-	img_data.texture[3]
-		= mlx_load_png("/Users/slakner/Projects/cube3d/WATER.png");
+	// img_data.texture[0]
+	// 	= mlx_load_png("/Users/slakner/Projects/cube3d/LAVA.png");
+	// img_data.texture[1]
+	// 	= mlx_load_png("/Users/slakner/Projects/cube3d/BIGLEAVES.png");
+	// img_data.texture[2]
+	// 	= mlx_load_png("/Users/slakner/Projects/cube3d/DIRT.png");
+	// img_data.texture[3]
+	// 	= mlx_load_png("/Users/slakner/Projects/cube3d/WATER.png");
+
+	img_data.texture[NORTH] = mlx_load_png(data->no_fn);
+	img_data.texture[SOUTH] = mlx_load_png(data->so_fn);
+	img_data.texture[EAST] = mlx_load_png(data->ea_fn);
+	img_data.texture[WEST] = mlx_load_png(data->we_fn);
 	img_data.screen_width = SCREEN_X;
 	img_data.screen_height = SCREEN_Y;
 	img_data.map_x = data->width;

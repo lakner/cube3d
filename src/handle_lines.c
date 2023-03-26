@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_lines.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 04:50:17 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/25 04:54:35 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/26 18:29:46 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ void
 	if (u_count_words(str, ' ') > 2)
 		raise_error(TOO_MANY_ARGS_PATH);
 	if (!u_strcmp(tokens[0], "NO") && texture_valid(tokens[1]))
-		data->no_fd = open(tokens[1], O_RDONLY);
+		data->no_fn = ft_strncpy(tokens[1], ft_strlen(tokens[1]));
 	else if (!u_strcmp(tokens[0], "SO") && texture_valid(tokens[1]))
-		data->so_fd = open(tokens[1], O_RDONLY);
+		data->so_fn = ft_strncpy(tokens[1], ft_strlen(tokens[1]));
 	else if (!u_strcmp(tokens[0], "WE") && texture_valid(tokens[1]))
-		data->we_fd = open(tokens[1], O_RDONLY);
+		data->we_fn = ft_strncpy(tokens[1], ft_strlen(tokens[1]));
 	else if (!u_strcmp(tokens[0], "EA") && texture_valid(tokens[1]))
-		data->ea_fd = open(tokens[1], O_RDONLY);
+		data->ea_fn = ft_strncpy(tokens[1], ft_strlen(tokens[1]));
 	else if (!u_strcmp(tokens[0], "F") && color_valid(tokens[1]))
 		data->f_colors = scrap_colors(tokens[1]);
 	else if (!u_strcmp(tokens[0], "C") && color_valid(tokens[1]))

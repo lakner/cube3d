@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 03:23:21 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/25 03:23:23 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/26 18:32:52 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void
 	print_s_data(struct s_data* data)
 {
 	printf("map_fd: %d\n", data->map_fd);
-	printf("NO_fd: %d\n", data->no_fd);
-	printf("SO_fd: %d\n", data->so_fd);
-	printf("WE_fd: %d\n", data->we_fd);
-	printf("EA_fd: %d\n", data->ea_fd);
+	printf("NO_fd: %s\n", data->no_fn);
+	printf("SO_fd: %s\n", data->so_fn);
+	printf("WE_fd: %s\n", data->we_fn);
+	printf("EA_fd: %s\n", data->ea_fn);
 	printf("F_colors: %d,%d,%d\n", data->f_colors[0], data->f_colors[1], data->f_colors[2]);
 	printf("C_colors: %d,%d,%d\n", data->c_colors[0], data->c_colors[1], data->c_colors[2]);
 	// printf("F_color: %lld\n", data->F_color);
