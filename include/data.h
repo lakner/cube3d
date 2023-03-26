@@ -36,6 +36,6 @@ struct s_data
 	struct s_map_list	*map_list;
 	char				**map;
 	int					**map_int;
-};
+}	t_data;
 
 #endif

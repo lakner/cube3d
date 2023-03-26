@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
+/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:35:29 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/25 03:37:10 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:37:18 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef struct s_img_data
 	uint32_t		screen_height;
 	t_dpoint		player;
 	double			move_speed;
-	int				*map;
+	int				**map;
 	mlx_texture_t	*texture[4];
 
 	uint32_t		map_x;
@@ -87,7 +87,7 @@ typedef struct s_img_data
 	mlx_image_t		*image;
 }	t_img_data;
 
-t_img_data	init_img_data(mlx_t *mlx, mlx_image_t *image);
+t_img_data	init_img_data(t_data *data, mlx_t *mlx, mlx_image_t *image);
 void		draw_image(mlx_image_t *image, t_img_data *img_data);
 int			win_close(t_img_data *img_data);
 void		key_event(void *img_data);
