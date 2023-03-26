@@ -38,7 +38,9 @@ void				data_destroy(struct s_data *data);
 void				handle_maps(struct s_data *data);
 char				**create_map_array(struct s_data *data);
 void				fill_map_array(char **map_array, struct s_data *data);
-int					**map_to_int_array(char **map, int height, int width);
+int					**map_to_int_array(struct s_data *data);
+void				set_player_position(struct s_data *data, int **int_map,
+						int i, int j);
 
 /* check_map.c */
 bool				check_first_line(char *line, int width);

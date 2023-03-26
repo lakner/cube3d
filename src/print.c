@@ -39,7 +39,7 @@ void
 	printf("map_found: %s\n", data->map_found ? "true" : "false");
 	printf("The w and the h are : %d | %d\n", data->width, data->height);
 	print_list(data->map_list);
-	printf("The fucking map is : \n");
+	printf("The map is : \n");
 	for (int i = 0; i < data->height; i++)
 	{
 		for (int j = 0; j < data->width; j++)
@@ -48,7 +48,7 @@ void
 		}
 	printf("\n");
 	}
-	printf("The fucking int map is : \n");
+	printf("The int map is : \n");
 	for (int i = 0; i < data->height; i++)
 	{
 		for (int j = 0; j < data->width; j++)
@@ -57,4 +57,5 @@ void
 		}
 		printf("\n");
 	}
+	printf("The player's positon is x:%d, y:%d\n", data->player_x, data->player_y);
 }

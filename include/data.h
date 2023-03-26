@@ -21,6 +21,8 @@ struct s_map_list
 
 typedef struct s_data
 {
+	int					player_x;
+	int					player_y;
 	int					width;
 	int					height;
 	int					map_fd;

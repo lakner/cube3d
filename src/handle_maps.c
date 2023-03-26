@@ -18,7 +18,7 @@ void
 	data->map = create_map_array(data);
 	if (check_map(data->map, data->height, data->width) == false)
 		raise_error(INVALID_MAP);
-	data->map_int = map_to_int_array(data->map, data->height, data->width);
+	data->map_int = map_to_int_array(data);
 	print_s_data(data);
 }
 
@@ -65,29 +65,37 @@ void
 }
 
 int
-	**map_to_int_array(char **map, int height, int width)
+	**map_to_int_array(struct s_data *data)
 {
 	int	**int_map;
 	int	i;
 	int	j;
 
-	int_map = (int **) malloc(height * sizeof(int *));
+	int_map = (int **) malloc(data->height * sizeof(int *));
 	i = 0;
-	while (i < height)
+	while (i < data->height)
 	{
-		int_map[i] = (int *) malloc(width * sizeof(int));
+		int_map[i] = (int *) malloc(data->width * sizeof(int));
 	j = 0;
-		while (j < width)
+		while (j < data->width)
 		{
-			if (map[i][j] == ' ')
+			if (data->map[i][j] == ' ')
 				int_map[i][j] = 2;
-			else if (map[i][j] == 'N')
-				int_map[i][j] = 3;
+			else if (data->map[i][j] == 'N')
+				set_player_position(data, int_map, i, j);
 			else
-				int_map[i][j] = map[i][j] - '0';
+				int_map[i][j] = data->map[i][j] - '0';
 			j++;
 		}
 		i++;
 	}
 	return (int_map);
+}
+
+void
+	set_player_position(struct s_data *data, int **int_map, int i, int j)
+{
+	data->player_x = i;
+	data->player_y = j;
+	int_map[i][j] = 0;
 }
