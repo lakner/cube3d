@@ -1,3 +1,9 @@
 libft/libft.a
 cub3D
 *.o
+
+cube3d
+.vscode/settings.json
+.vscode/
+
+cub3D
