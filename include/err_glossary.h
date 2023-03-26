@@ -16,6 +16,7 @@
 # define MAP_ERROR "An error occured while trying to read the map.\n"
 # define COLOR_INVALID "Invalid color.\n"
 # define TEXTURE_INVALID "Invalid texture.\n"
+# define TEXTURE_PERMISSION "No read permission for texture file.\n"
 # define TOO_MANY_ARGS_PATH "Too many arguments. Expenting path to texture.\n"
 # define TOO_MANY_ARGS "Too many arguments.\nTry: ./cub3D maps/test.cub\n"
 # define TOO_FEW_ARGS "Too few arguments.\nTry: ./cub3D maps/test.cub\n"

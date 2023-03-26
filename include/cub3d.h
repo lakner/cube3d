@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:35:29 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/26 17:37:18 by slakner          ###   ########.fr       */
+/*   Updated: 2023/03/26 22:19:14 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 # define CUB3D_H
 
 # include <stdbool.h>
+# include <errno.h>
 
 # include "../libft/include/libft.h"
 # include "err_glossary.h"
 # include "data.h"
 # include "functions.h"
 # include "print.h"
-
 
 # include "../MLX42/include/MLX42/MLX42.h"
 
