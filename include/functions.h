@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 03:39:00 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/25 17:23:20 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/26 18:22:10 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int					**map_to_int_array(char **map, int height, int width);
 
 /* check_map.c */
 bool				check_first_line(char *line, int width);
-bool				check_last_line(char *line);
+bool				check_last_line(char *line, int width);
 bool				check_line(char *prev_line, char *line, char *next_line,
 						int width);
 bool				check_map(char **map, int height, int width);

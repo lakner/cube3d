@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 05:32:44 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/25 17:23:19 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/26 18:21:40 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ bool
 		}
 		else if (i == height - 1)
 		{
-			if (!check_last_line(map[i]))
+			if (!check_last_line(map[i], width))
 				return (false);
 		}
 		else
@@ -56,12 +56,13 @@ bool
 }
 
 bool
-	check_last_line(char *line)
+	check_last_line(char *line, int width)
 {
 	int	i;
 
+	printf("Hi3\n");
 	i = 0;
-	while (line[i] != '\0')
+	while (i < width)
 	{
 		if (line[i] != '1' && line[i] != ' ')
 			return (false);
