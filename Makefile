@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 # tool macros
-CXX := clang
+CXX := cc
 CXXFLAGS := -Wall -Wextra -Werror
 
 # path macros
