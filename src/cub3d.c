@@ -32,7 +32,7 @@ t_img_data	init_img_data(t_data *data, mlx_t *mlx, mlx_image_t *img)
 	img_data.map_y = data->height;
 	img_data.player.x = 22.5;
 	img_data.player.y = 12.5;
-	img_data.move_speed = 1.05;
+	img_data.move_speed = 0.3;
 	img_data.cam_p.x = 0;
 	img_data.cam_p.y = 0.66;
 	img_data.dir.x = -1;

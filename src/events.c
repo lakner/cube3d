@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 17:41:09 by slakner           #+#    #+#             */
-/*   Updated: 2023/03/26 16:53:08 by slakner          ###   ########.fr       */
+/*   Updated: 2023/03/30 21:25:25 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ void	move_forward_backward(t_img_data *img, int dir)
 	t_dpoint	tmp;
 	t_ipoint	map_sq;
 
-	tmp.x = img->player.x + img->dir.x * img->move_speed * dir;
-	tmp.y = img->player.y + img->dir.y * img->move_speed * dir;
+	tmp.x = img->player.x + (img->dir.x * img->move_speed * dir);
+	tmp.y = img->player.y + (img->dir.y * img->move_speed * dir);
 	map_sq.x = tmp.x;
 	map_sq.y = tmp.y;
-	if (!(img->map[(img->map_x * map_sq.y) + map_sq.x]))
+	if (!(img->map[map_sq.y][map_sq.x]))
 		img->player = tmp;
 	draw_image(img->image, img);
 }
@@ -73,7 +73,7 @@ void	move_left_right(t_img_data *img, int dir)
 	pos_tmp.y = img->player.y + dir_tmp.y * img->move_speed;
 	map_sq.x = pos_tmp.x;
 	map_sq.y = pos_tmp.y;
-	if (!(img->map[(img->map_x * map_sq.y) + map_sq.x]))
+	if (!(img->map[map_sq.y][map_sq.x]))
 		img->player = pos_tmp;
 	draw_image(img->image, img);
 }
