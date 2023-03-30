@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 17:41:09 by slakner           #+#    #+#             */
-/*   Updated: 2023/03/30 21:25:25 by slakner          ###   ########.fr       */
+/*   Updated: 2023/03/30 22:44:28 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,21 +81,31 @@ void	move_left_right(t_img_data *img, int dir)
 void	rotate_left(void *img_data)
 {
 	t_img_data	*img;
+	static int	i;
 
-	img = (t_img_data *) img_data;
-	img->dir = rot270(img->dir);
-	img->cam_p = rot270(img->cam_p);
-	draw_image(img->image, img);
+	if (! (i % 4))
+	{
+		img = (t_img_data *) img_data;
+		img->dir = rot270(img->dir);
+		img->cam_p = rot270(img->cam_p);
+		draw_image(img->image, img);
+	}
+	i ++;
 }
 
 void	rotate_right(void *img_data)
 {
 	t_img_data	*img;
+	static int	i;
 
-	img = (t_img_data *) img_data;
-	img->dir = rot90(img->dir);
-	img->cam_p = rot90(img->cam_p);
-	draw_image(img->image, img);
+	if (!(i % 4))
+	{
+		img = (t_img_data *) img_data;
+		img->dir = rot90(img->dir);
+		img->cam_p = rot90(img->cam_p);
+		draw_image(img->image, img);
+	}
+	i ++;
 }
 
 void	key_event(void *img_data)
