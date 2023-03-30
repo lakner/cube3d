@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 20:52:51 by slakner           #+#    #+#             */
-/*   Updated: 2023/03/26 16:31:25 by slakner          ###   ########.fr       */
+/*   Updated: 2023/03/30 20:36:15 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,7 @@ double	dist_to_next_wall(t_img_data *data, t_ipoint map_sq, t_column *col)
 			col->dist_side.x += col->delta_side.x;
 			map_sq.x += stepdir(col->ray_dir).x;
 			if (data->map[map_sq.y][map_sq.x] > 0)
-			{
 				return (wall_found(col, NS));
-			}
 		}
 		else
 		{

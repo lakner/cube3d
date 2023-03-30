@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 03:39:00 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/26 18:26:49 by slakner          ###   ########.fr       */
+/*   Updated: 2023/03/30 21:08:11 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,6 @@ typedef struct s_data
 	int					width;
 	int					height;
 	int					map_fd;
-	// int					no_fd;
-	// int					so_fd;
-	// int					we_fd;
-	// int					ea_fd;
 	char				*no_fn;
 	char				*so_fn;
 	char				*we_fn;
