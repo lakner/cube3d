@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 23:04:40 by slakner           #+#    #+#             */
-/*   Updated: 2023/03/26 19:06:11 by slakner          ###   ########.fr       */
+/*   Updated: 2023/03/30 21:27:57 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ t_img_data	init_img_data(t_data *data, mlx_t *mlx, mlx_image_t *img)
 	img_data.screen_height = SCREEN_Y;
 	img_data.map_x = data->width;
 	img_data.map_y = data->height;
-	img_data.player.x = 22.5;
-	img_data.player.y = 12.5;
+	img_data.player.x = data->player_y + 0.5;
+	img_data.player.y = data->player_x + 0.5;
 	img_data.move_speed = 0.3;
 	img_data.cam_p.x = 0;
 	img_data.cam_p.y = 0.66;
