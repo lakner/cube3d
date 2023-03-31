@@ -30,8 +30,8 @@ t_img_data	init_img_data(t_data *data, mlx_t *mlx, mlx_image_t *img)
 	img_data.screen_height = SCREEN_Y;
 	img_data.map_x = data->width;
 	img_data.map_y = data->height;
-	img_data.player.x = data->player_y + 0.5;
-	img_data.player.y = data->player_x + 0.5;
+	img_data.player.x = data->player_x + 0.5;
+	img_data.player.y = data->player_y + 0.5;
 	img_data.move_speed = 0.15;
 	img_data.cam_p.x = 0;
 	img_data.cam_p.y = 0.66;

@@ -95,7 +95,7 @@ int
 void
 	set_player_position(struct s_data *data, int **int_map, int i, int j)
 {
-	data->player_x = i;
-	data->player_y = j;
+	data->player_x = j;
+	data->player_y = i;
 	int_map[i][j] = 0;
 }
