@@ -1,10 +1,10 @@
-NO textures/BIGBRICKS.png
-SO textures/CASTLEBRICKS.png
+NO maps/test_textures/tux.png
+SO textures/create-your-wallpaper.png
 WE textures/DUNGEONBRICKS.png
 EA textures/GOOBRICKS.png
 
-F 220,100,0
-C 225,30,0
+C 135,206,235
+F 19,133,16
 
     1111111111111111111111111
     1000000000110000000000001
