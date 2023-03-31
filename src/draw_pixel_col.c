@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 20:14:14 by slakner           #+#    #+#             */
-/*   Updated: 2023/03/26 16:45:54 by slakner          ###   ########.fr       */
+/*   Updated: 2023/03/31 20:53:03 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	draw_pixel_col(mlx_image_t *image, t_img_data *data, int x)
 	draw_wall(image, data, &px_col, &y);
 	while (y < SCREEN_Y)
 	{
-		mlx_put_pixel(image, x, y, 0x138510ff);
+		mlx_put_pixel(image, x, y, data->ground_color);
 		y++;
 	}
 }
@@ -43,6 +43,8 @@ t_column	init_pxl_col(t_img_data *data, int x)
 	col.ray_dir.y = (double) data->dir.y + data->cam_p.y * cam_x;
 	col.walldist = dda_walldist(data, &col);
 	col.line_height = SCREEN_Y / col.walldist;
+	col.sky_color = data->sky_color;
+	col.ground_color = data->ground_color;
 	col.draw_start = (-col.line_height / 2) + (SCREEN_Y / 2);
 	if (col.draw_start < 0)
 		col.draw_start = 0;
@@ -57,7 +59,7 @@ void	draw_sky(mlx_image_t *image, t_column *col, int x, int *y)
 {
 	while (*y < col->draw_start)
 	{
-		mlx_put_pixel(image, x, *y, 0x1e2f97ff);
+		mlx_put_pixel(image, x, *y, col->sky_color);
 		(*y)++;
 	}
 }

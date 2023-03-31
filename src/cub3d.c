@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 23:04:40 by slakner           #+#    #+#             */
-/*   Updated: 2023/03/30 21:40:59 by slakner          ###   ########.fr       */
+/*   Updated: 2023/03/31 20:15:02 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ t_img_data	init_img_data(t_data *data, mlx_t *mlx, mlx_image_t *img)
 	img_data.map_y = data->height;
 	img_data.player.x = data->player_x + 0.5;
 	img_data.player.y = data->player_y + 0.5;
+	img_data.ground_color = data->f_color;
+	img_data.sky_color = data->c_color;
 	img_data.move_speed = 0.15;
 	img_data.cam_p.x = 0;
 	img_data.cam_p.y = 0.66;

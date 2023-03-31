@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:35:29 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/26 22:19:14 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/03/31 20:04:18 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ typedef struct s_column
 	int			line_height;
 	int			draw_start;
 	int			draw_end;
+	uint32_t	sky_color;
+	uint32_t	ground_color;
 }	t_column;
 
 // int map_x, map_y: map dimensions
@@ -78,13 +80,14 @@ typedef struct s_img_data
 	double			move_speed;
 	int				**map;
 	mlx_texture_t	*texture[4];
-
 	uint32_t		map_x;
 	uint32_t		map_y;
 	t_dpoint		cam_p;
 	t_dpoint		dir;
 	mlx_t			*mlx;
 	mlx_image_t		*image;
+	uint32_t		sky_color;
+	uint32_t		ground_color;
 }	t_img_data;
 
 t_img_data	init_img_data(t_data *data, mlx_t *mlx, mlx_image_t *image);
