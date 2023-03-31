@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 23:04:40 by slakner           #+#    #+#             */
-/*   Updated: 2023/03/31 20:15:02 by slakner          ###   ########.fr       */
+/*   Updated: 2023/03/31 23:45:06 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ t_img_data	init_img_data(t_data *data, mlx_t *mlx, mlx_image_t *img)
 	img_data.map_y = data->height;
 	img_data.player.x = data->player_x + 0.5;
 	img_data.player.y = data->player_y + 0.5;
-	img_data.ground_color = data->f_color;
-	img_data.sky_color = data->c_color;
+	img_data.ground_color = rgb_to_hex(data->f_colors);
+	img_data.sky_color = rgb_to_hex(data->c_colors);
 	img_data.move_speed = 0.15;
 	img_data.cam_p.x = 0;
 	img_data.cam_p.y = 0.66;
@@ -71,7 +71,7 @@ uint32_t	get_texture_color(t_img_data *img,
 	uint8_t		b;
 	uint32_t	color;
 
-	tex_y = (int)(tex_pos) & (img->texture[walldir]->height - 1);
+	tex_y = (int)(tex_pos) % (img->texture[walldir]->height - 1);
 	r = img->texture[walldir]->pixels[
 		(img->texture[walldir]->width * tex_y * 4) + tex_x * 4];
 	g = img->texture[walldir]->pixels[
