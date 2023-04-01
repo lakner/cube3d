@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 20:52:51 by slakner           #+#    #+#             */
-/*   Updated: 2023/03/30 20:36:15 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/01 21:36:30 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,10 @@ double	wall_found(t_column *col, int walltype)
 			col->walldir = EAST;
 		else
 			col->walldir = WEST;
-		return (col->dist_side.y - col->delta_side.y);
+		if ((col->dist_side.y - col->delta_side.y) < 0.1)
+			return (0.1);
+		else
+			return (col->dist_side.y - col->delta_side.y);
 	}
 	else
 	{
@@ -109,6 +112,8 @@ double	wall_found(t_column *col, int walltype)
 			col->walldir = NORTH;
 		else
 			col->walldir = SOUTH;
+		if ((col->dist_side.x - col->delta_side.x) < 0.1)
+			return (0.1);
 		return (col->dist_side.x - col->delta_side.x);
 	}
 }
