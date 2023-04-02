@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stephanie.lakner <stephanie.lakner@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 17:41:09 by slakner           #+#    #+#             */
-/*   Updated: 2023/03/30 23:03:33 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/06 15:22:27 by stephanie.l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,13 @@ void	move_left_right(t_img_data *img, int dir)
 	map_sq.x = pos_tmp.x;
 	map_sq.y = pos_tmp.y;
 	if (!(img->map[map_sq.y][map_sq.x]))
+	{
+		if (img->map[map_sq.y][map_sq.x + 1] && map_sq.x + 1 - pos_tmp.x <= 0.2)	// case: too close to "eastern" wall
+			pos_tmp.x -= 0.1;
+		else if (img->map[map_sq.y][map_sq.x - 1] && pos_tmp.x - map_sq.x <= 0.2)	// case: too close to "western" wall)
+			pos_tmp.x += 0.1;
 		img->player = pos_tmp;
+	}
 	draw_image(img->image, img);
 }
 
@@ -83,7 +89,7 @@ void	rotate_left(void *img_data)
 	t_img_data	*img;
 	static int	i;
 
-	if (! (i % 4))
+	if (! (i % 5))
 	{
 		img = (t_img_data *) img_data;
 		img->dir = rot270(img->dir);
@@ -98,7 +104,7 @@ void	rotate_right(void *img_data)
 	t_img_data	*img;
 	static int	i;
 
-	if (!(i % 4))
+	if (!(i % 5))
 	{
 		img = (t_img_data *) img_data;
 		img->dir = rot90(img->dir);

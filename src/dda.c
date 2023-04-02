@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stephanie.lakner <stephanie.lakner@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 20:52:51 by slakner           #+#    #+#             */
-/*   Updated: 2023/04/01 21:36:30 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/06 15:11:27 by stephanie.l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ double	dda_walldist(t_img_data *data, t_column *col)
 	return (dist_to_next_wall(data, map_sq, col));
 }
 
-// calculates the distance from between grid lines 
+// calculates the distance from between grid lines
 // (both vertical and horizontal) along the direction
 // vector.
 
