@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:37:50 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/26 18:40:40 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/06 00:17:28 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,6 @@ int
 			draw(&data);
 		data_destroy(&data);
 	}
+	printf("I m here\n");
+	system("leaks cub3D");
 }

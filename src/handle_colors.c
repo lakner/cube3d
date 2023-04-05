@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_colors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 06:30:38 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/25 17:19:30 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/04/05 23:17:32 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ unsigned char*
 	colors[1] = ft_atoi(rgb[1]);
 	colors[2] = ft_atoi(rgb[2]);
 	colors[3] = '\0';
+	free_split(rgb);
 	return (colors);
 }
 
