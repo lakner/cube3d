@@ -50,6 +50,7 @@ void
 	data->width = 0;
 	data->height = 0;
 	data->map_list = NULL; // uninitialized causes SIGSEG on Linux
+	data->map_found = false;
 }
 
 void

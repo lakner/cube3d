@@ -83,5 +83,6 @@ bool
 {
 	if (data->map_found == true && str[0] == '\n')
 		return (true);
-	return (false);
+	else
+		return (false);
 }
