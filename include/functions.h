@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stephanie.lakner <stephanie.lakner@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 03:39:00 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/26 18:22:10 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/06 14:34:40 by stephanie.l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FUNCTIONS_H
 # define FUNCTIONS_H
+# include "cub3d.h"
 
 /* error_handling.c*/
 void				raise_error(char *err);
@@ -33,6 +34,9 @@ bool				line_is_empty(struct s_data *data, char *str);
 /* free.c */
 void				free_split(char **tokens);
 void				data_destroy(struct s_data *data);
+
+/* free_img_data.c */
+void				free_img_data(t_img_data *img);
 
 /* handle_maps.c */
 void				handle_maps(struct s_data *data);

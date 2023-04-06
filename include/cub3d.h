@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stephanie.lakner <stephanie.lakner@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:35:29 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/31 20:04:18 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/06 14:40:50 by stephanie.l      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # include <stdbool.h>
 # include <errno.h>
 
+# include "../MLX42/include/MLX42/MLX42.h"
+
 # include "../libft/include/libft.h"
 # include "err_glossary.h"
 # include "data.h"
 # include "functions.h"
 # include "print.h"
-
-# include "../MLX42/include/MLX42/MLX42.h"
 
 # define SCREEN_X 			1080 //1700 //1920 //2560
 # define SCREEN_Y			1080 //1440
@@ -36,59 +36,6 @@
 
 # define EW 0
 # define NS 1
-
-typedef struct s_dpoint
-{
-	double	x;
-	double	y;
-}	t_dpoint;
-
-typedef struct s_ipoint
-{
-	int	x;
-	int	y;
-}	t_ipoint;
-
-// This struct stores the data for one 'column' of pixels drawn on the screen
-typedef struct s_column
-{
-	double		walldist;
-	int			walldir;
-	double		step;
-	t_dpoint	ray_dir;
-	t_dpoint	dist_side;
-	t_dpoint	delta_side;
-	int			wall_type;
-	double		px_x;
-	int			line_height;
-	int			draw_start;
-	int			draw_end;
-	uint32_t	sky_color;
-	uint32_t	ground_color;
-}	t_column;
-
-// int map_x, map_y: map dimensions
-// t_dpoint player: player position
-// t_dpoint cam_p: vector of the camera plane
-// t_dpoint dir: direction vector
-
-typedef struct s_img_data
-{
-	uint32_t		screen_width;
-	uint32_t		screen_height;
-	t_dpoint		player;
-	double			move_speed;
-	int				**map;
-	mlx_texture_t	*texture[4];
-	uint32_t		map_x;
-	uint32_t		map_y;
-	t_dpoint		cam_p;
-	t_dpoint		dir;
-	mlx_t			*mlx;
-	mlx_image_t		*image;
-	uint32_t		sky_color;
-	uint32_t		ground_color;
-}	t_img_data;
 
 t_img_data	init_img_data(t_data *data, mlx_t *mlx, mlx_image_t *image);
 void		draw_image(mlx_image_t *image, t_img_data *img_data);
