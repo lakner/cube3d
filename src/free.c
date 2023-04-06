@@ -71,6 +71,7 @@ void
 	free(data->we_fn);
 	free(data->ea_fn);
 	free(data->f_colors);
+	free(data->c_colors);
 	free_matrix(data->map, data->height);
 	free_matrix_int(data->map_int, data->height);
 	free_linked_list(data->map_list);
