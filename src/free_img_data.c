@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_img_data.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stephanie.lakner <stephanie.lakner@stud    +#+  +:+       +#+        */
+/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:28:33 by stephanie.l       #+#    #+#             */
-/*   Updated: 2023/04/06 14:42:00 by stephanie.l      ###   ########.fr       */
+/*   Updated: 2023/04/08 19:42:15 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

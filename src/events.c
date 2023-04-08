@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 17:41:09 by slakner           #+#    #+#             */
-/*   Updated: 2023/04/08 19:06:51 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/08 19:41:39 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,6 @@ int	win_close(t_img_data *img_data)
 {
 	mlx_close_window(img_data->mlx);
 	return (0);
-}
-
-t_dpoint	rot90(t_dpoint v)
-{
-	double	tmp;
-
-	tmp = -(v.x);
-	v.x = v.y;
-	v.y = tmp;
-	return (v);
-}
-
-t_dpoint	rot270(t_dpoint v)
-{
-	t_dpoint	tmp;
-
-	tmp = rot90(v);
-	tmp = rot90(tmp);
-	tmp = rot90(tmp);
-	return (tmp);
 }
 
 // int dir should either be 1 or -1
@@ -75,32 +55,14 @@ void	move_left_right(t_img_data *img, int dir)
 	map_sq.y = pos_tmp.y;
 	if (!(img->map[map_sq.y][map_sq.x]))
 	{
-		if (img->map[map_sq.y][map_sq.x + 1] && map_sq.x + 1 - pos_tmp.x <= 0.2)	// case: too close to "eastern" wall
+		if (img->map[map_sq.y][map_sq.x + 1]
+			&& map_sq.x + 1 - pos_tmp.x <= 0.2)
 			pos_tmp.x -= 0.1;
-		else if (img->map[map_sq.y][map_sq.x - 1] && pos_tmp.x - map_sq.x <= 0.2)	// case: too close to "western" wall)
+		else if (img->map[map_sq.y][map_sq.x - 1]
+			&& pos_tmp.x - map_sq.x <= 0.2)
 			pos_tmp.x += 0.1;
 		img->player = pos_tmp;
 	}
-	draw_image(img->image, img);
-}
-
-void	rotate_left(void *img_data)
-{
-	t_img_data	*img;
-
-	img = (t_img_data *) img_data;
-	img->dir = rot270(img->dir);
-	img->cam_p = rot270(img->cam_p);
-	draw_image(img->image, img);
-}
-
-void	rotate_right(void *img_data)
-{
-	t_img_data	*img;
-
-	img = (t_img_data *) img_data;
-	img->dir = rot90(img->dir);
-	img->cam_p = rot90(img->cam_p);
 	draw_image(img->image, img);
 }
 
@@ -123,7 +85,7 @@ void	key_event(void *img_data)
 		move_left_right(img, 1);
 }
 
-void leftright_key_hook(mlx_key_data_t keydata, void* img_data)
+void	leftright_key_hook(mlx_key_data_t keydata, void *img_data)
 {
 	mlx_t		*mlx;
 	t_img_data	*img;

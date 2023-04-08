@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stephanie.lakner <stephanie.lakner@stud    +#+  +:+       +#+        */
+/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 03:39:00 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/06 14:34:40 by stephanie.l      ###   ########.fr       */
+/*   Updated: 2023/04/08 19:48:16 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,12 @@ bool				texture_valid(char *str);
 bool				color_valid(char *color);
 unsigned char		*scrap_colors(char *color);
 int					rgb_to_hex(unsigned char *colors);
+
+/* rotate.c */
+t_dpoint			rot90(t_dpoint v);
+t_dpoint			rot270(t_dpoint v);
+void				rotate_left(void *img_data);
+void				rotate_right(void *img_data);
 
 /* utilities_00.c */
 bool				u_str_is_numeric(char *str);

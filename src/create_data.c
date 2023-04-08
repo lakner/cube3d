@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_data.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
+/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 06:00:33 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/08 19:07:39 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/04/08 19:37:38 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void
 	data->map_fd = open(file_map, O_RDONLY);
 	data->width = 0;
 	data->height = 0;
-	data->map_list = NULL; // uninitialized causes SIGSEG on Linux
-	data->map_found = false; // uninitialized causes conditional jump
+	data->map_list = NULL;
+	data->map_found = false;
 }
 
 void

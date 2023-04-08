@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:37:50 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/08 19:05:02 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/08 19:48:51 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,15 @@ int	throw_mlx_err(void)
 	return (EXIT_FAIL);
 }
 
-int
-	draw(t_data *data)
+void	init_mlx_hooks_loop(mlx_t *mlx, mlx_image_t *img, t_img_data *img_data)
+{
+	mlx_key_hook(mlx, leftright_key_hook, img_data);
+	mlx_loop_hook(mlx, key_event, img_data);
+	draw_image(img, img_data);
+	mlx_loop(mlx);
+}
+
+int	draw(t_data *data)
 {
 	mlx_t		*mlx;
 	mlx_image_t	*image;
@@ -40,10 +47,7 @@ int
 		mlx_close_window(mlx);
 		return (throw_mlx_err());
 	}
-	mlx_key_hook(mlx, leftright_key_hook, &img_data);
-	mlx_loop_hook(mlx, key_event, &img_data);
-	draw_image(image, &img_data);
-	mlx_loop(mlx);
+	init_mlx_hooks_loop(mlx, image, &img_data);
 	free_img_data(&img_data);
 	mlx_terminate(mlx);
 	return (EXIT_SUCCESS);
