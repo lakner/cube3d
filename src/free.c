@@ -6,7 +6,7 @@
 /*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 05:06:41 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/05 23:22:44 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/04/08 19:08:06 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,4 @@ void
 	free_matrix(data->map, data->height);
 	free_matrix_int(data->map_int, data->height);
 	free_linked_list(data->map_list);
-	// free_colors(data->map_int);
-	// FREE THE COLORS
-	// // try to remove everthing alloced (map and the textures strings if allocated)
 }

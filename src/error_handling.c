@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcharala <dcharala@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 04:31:44 by dcharala          #+#    #+#             */
-/*   Updated: 2023/03/25 04:32:20 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/04/08 19:06:40 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// maybe create a garbage collecor to remove the shit before you exit
 void
 	raise_error(char *err)
 {

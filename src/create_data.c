@@ -6,7 +6,7 @@
 /*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 06:00:33 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/06 00:12:06 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/04/08 19:07:39 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ bool
 		free(line);
 		line = strip_newline(get_next_line(data->map_fd));
 	}
-		/* if (check_map(data->map_list, 0) == false) */
-		/* 	raise_error(INVALID_MAP); */
 	handle_maps(data);
 	return (true);
 }
@@ -50,7 +48,7 @@ void
 	data->width = 0;
 	data->height = 0;
 	data->map_list = NULL; // uninitialized causes SIGSEG on Linux
-	data->map_found = false;
+	data->map_found = false; // uninitialized causes conditional jump
 }
 
 void
