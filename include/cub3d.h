@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stephanie.lakner <stephanie.lakner@stud    +#+  +:+       +#+        */
+/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:35:29 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/06 14:40:50 by stephanie.l      ###   ########.fr       */
+/*   Updated: 2023/04/08 18:54:33 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ t_img_data	init_img_data(t_data *data, mlx_t *mlx, mlx_image_t *image);
 void		draw_image(mlx_image_t *image, t_img_data *img_data);
 int			win_close(t_img_data *img_data);
 void		key_event(void *img_data);
+void		leftright_key_hook(mlx_key_data_t keydata, void* param);
 
 uint32_t	get_texture_color(t_img_data *img,
 				double tex_y, int tex_x, int walldir);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stephanie.lakner <stephanie.lakner@stud    +#+  +:+       +#+        */
+/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:37:50 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/06 14:27:54 by stephanie.l      ###   ########.fr       */
+/*   Updated: 2023/04/08 19:05:02 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int
 		mlx_close_window(mlx);
 		return (throw_mlx_err());
 	}
+	mlx_key_hook(mlx, leftright_key_hook, &img_data);
 	mlx_loop_hook(mlx, key_event, &img_data);
 	draw_image(image, &img_data);
 	mlx_loop(mlx);

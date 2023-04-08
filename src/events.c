@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stephanie.lakner <stephanie.lakner@stud    +#+  +:+       +#+        */
+/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 17:41:09 by slakner           #+#    #+#             */
-/*   Updated: 2023/04/06 15:22:27 by stephanie.l      ###   ########.fr       */
+/*   Updated: 2023/04/08 19:06:51 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,31 +87,21 @@ void	move_left_right(t_img_data *img, int dir)
 void	rotate_left(void *img_data)
 {
 	t_img_data	*img;
-	static int	i;
 
-	if (! (i % 5))
-	{
-		img = (t_img_data *) img_data;
-		img->dir = rot270(img->dir);
-		img->cam_p = rot270(img->cam_p);
-		draw_image(img->image, img);
-	}
-	i ++;
+	img = (t_img_data *) img_data;
+	img->dir = rot270(img->dir);
+	img->cam_p = rot270(img->cam_p);
+	draw_image(img->image, img);
 }
 
 void	rotate_right(void *img_data)
 {
 	t_img_data	*img;
-	static int	i;
 
-	if (!(i % 5))
-	{
-		img = (t_img_data *) img_data;
-		img->dir = rot90(img->dir);
-		img->cam_p = rot90(img->cam_p);
-		draw_image(img->image, img);
-	}
-	i ++;
+	img = (t_img_data *) img_data;
+	img->dir = rot90(img->dir);
+	img->cam_p = rot90(img->cam_p);
+	draw_image(img->image, img);
 }
 
 void	key_event(void *img_data)
@@ -131,8 +121,17 @@ void	key_event(void *img_data)
 		move_left_right(img, -1);
 	if (mlx_is_key_down(mlx, MLX_KEY_D))
 		move_left_right(img, 1);
-	if (mlx_is_key_down(mlx, MLX_KEY_LEFT))
+}
+
+void leftright_key_hook(mlx_key_data_t keydata, void* img_data)
+{
+	mlx_t		*mlx;
+	t_img_data	*img;
+
+	img = (t_img_data *) img_data;
+	mlx = img->mlx;
+	if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)
 		rotate_left(img);
-	if (mlx_is_key_down(mlx, MLX_KEY_RIGHT))
+	if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)
 		rotate_right(img);
 }
