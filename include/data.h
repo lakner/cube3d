@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stephanie.lakner <stephanie.lakner@stud    +#+  +:+       +#+        */
+/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 03:39:00 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/06 14:40:19 by stephanie.l      ###   ########.fr       */
+/*   Updated: 2023/04/08 19:35:50 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,5 @@ typedef struct s_img_data
 	uint32_t		sky_color;
 	uint32_t		ground_color;
 }	t_img_data;
-
 
 #endif
