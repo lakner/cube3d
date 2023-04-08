@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:37:50 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/08 19:48:51 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/08 20:06:37 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,4 @@ int
 			draw(&data);
 		data_destroy(&data);
 	}
-	printf("I m here\n");
-	system("leaks cub3D");
 }

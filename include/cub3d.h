@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:35:29 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/08 19:15:58 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/08 20:10:29 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include "err_glossary.h"
 # include "data.h"
 # include "functions.h"
-# include "print.h"
 
 # define SCREEN_X 			1080 //1700 //1920 //2560
 # define SCREEN_Y			1080 //1440

@@ -6,7 +6,7 @@
 /*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 06:30:38 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/05 23:17:32 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/04/08 20:11:51 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,9 @@ bool
 	int		i;
 
 	i = 0;
-	printf("The color is : %s\n", color);
 	rgb = ft_split(color, ',');
 	while (i < 3)
 	{
-		printf("The rgb is : %s\n", rgb[i]);
 		if (rgb[i] == NULL || u_str_is_numeric(rgb[i]) == false)
 		{
 			free_split(rgb);
@@ -48,7 +46,6 @@ unsigned char*
 
 	rgb = ft_split(color, ',');
 	colors = malloc(sizeof(char) * 4);
-	// printf("The first color is : %d\n", ft_atoi(rgb[0]));
 	colors[0] = ft_atoi(rgb[0]);
 	colors[1] = ft_atoi(rgb[1]);
 	colors[2] = ft_atoi(rgb[2]);
@@ -63,5 +60,6 @@ int
 	int	transparency;
 
 	transparency = 255;
-	return ((colors[0] << 24) + (colors[1]	<< 16) + (colors[2] << 8) + transparency);
+	return ((colors[0] << 24) + (colors[1] << 16) + (colors[2] << 8)
+		+ transparency);
 }

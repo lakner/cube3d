@@ -6,7 +6,7 @@
 /*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 04:50:17 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/06 00:10:12 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/04/08 20:08:13 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 char*
 	strip_newline(char *line)
 {
-	int	len;
-	char *new;
+	int		len;
+	char	*new;
 
 	len = ft_strlen(line);
 	if (len > 0 && line[len - 1] == '\n')

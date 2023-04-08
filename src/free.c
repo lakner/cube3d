@@ -6,7 +6,7 @@
 /*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 05:06:41 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/08 19:08:06 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/04/08 20:06:18 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void
 void
 	free_matrix_int(int	**map_int, int height)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(i < height)
+	while (i < height)
 	{
 		free(map_int[i]);
 		i++;
@@ -40,10 +40,10 @@ void
 void
 	free_matrix(char	**map, int height)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(i < height)
+	while (i < height)
 	{
 		free(map[i]);
 		i++;
@@ -51,15 +51,20 @@ void
 	free(map);
 }
 
-void free_linked_list(struct s_map_list* head)
+void
+	free_linked_list(struct s_map_list *head)
 {
-    struct s_map_list* current = head;
-    while (current != NULL) {
-        struct s_map_list* temp = current;
-        current = current->next;
-        free(temp->line);
-        free(temp);
-    }
+	struct s_map_list	*current;
+	struct s_map_list	*temp;
+
+	current = head;
+	while (current != NULL)
+	{
+		temp = current;
+		current = current->next;
+		free(temp->line);
+		free(temp);
+	}
 }
 
 void
