@@ -31,7 +31,7 @@ bool
 		else if (ft_atoi(rgb[i]) < 0 || ft_atoi(rgb[i]) > 255)
 		{
 			free_split(rgb);
-			raise_error(COLOR_INVALID);
+			raise_error(COLOR_RGB);
 			return (false);
 		}
 		i++;

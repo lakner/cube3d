@@ -21,7 +21,7 @@ bool
 		return (false);
 	if (ft_strncmp(str + ft_strlen(str) - 4, ".png", 4))
 	{
-		raise_error(PNG_ONLY);
+		raise_error(TEXTURE_PNG);
 		return (false);
 	}
 	fd = open(str, O_RDONLY);
@@ -32,7 +32,7 @@ bool
 			raise_error(TEXTURE_PERMISSION);
 			return (false);
 		}
-		raise_error(TEXTURE_INVALID);
+		raise_error(TEXTURE_OPEN);
 		return (false);
 	}
 	close(fd);

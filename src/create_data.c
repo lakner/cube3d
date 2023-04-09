@@ -13,6 +13,16 @@
 #include "cub3d.h"
 
 bool
+	check_id(struct s_data *data)
+{
+	if (data->no_fn == NULL || data->so_fn == NULL || data->we_fn == NULL
+		|| data->ea_fn == NULL || data->f_colors == NULL
+		|| data->c_colors == NULL)
+		raise_error(MAPFILE_ID_NO_ID);
+	return (true);
+}
+
+bool
 	create_data(struct s_data *data, char *file_map)
 {
 	char				*line;
@@ -24,7 +34,7 @@ bool
 	{
 		if (line_start_valid(line) == true)
 			data_line_save(data, line);
-		else if (line_map(data, line) == true)
+		else if (line_map(data, line) == true && check_id(data) == true)
 		{
 			update_w_h(data, line);
 			new = u_create_node(line);
@@ -33,7 +43,7 @@ bool
 		else if (line_is_empty(data, line) == false)
 			;
 		else
-			raise_error(MAP_ERROR);
+			raise_error(MAPFILE_ERROR);
 		free(line);
 		line = strip_newline(get_next_line(data->map_fd));
 	}
@@ -50,6 +60,12 @@ void
 	data->map_list = NULL;
 	data->map_found = false;
 	data->player_s = false;
+	data->no_fn = NULL;
+	data->so_fn = NULL;
+	data->we_fn = NULL;
+	data->ea_fn = NULL;
+	data->f_colors = NULL;
+	data->c_colors = NULL;
 }
 
 void

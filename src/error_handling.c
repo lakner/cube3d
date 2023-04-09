@@ -25,15 +25,15 @@ bool
 	int	fd;
 
 	if (argc == 1)
-		raise_error(TOO_FEW_ARGS);
+		raise_error(TERM_TOO_FEW_ARGS);
 	if (argc > 2)
-		raise_error(TOO_MANY_ARGS);
+		raise_error(TERM_TOO_MANY_ARGS);
 	if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".cub", 4))
-		raise_error(NOT_DOT_CUB);
+		raise_error(MAPFILE_EXT);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
-		raise_error(MAP_NOT_FOUND);
+		raise_error(MAPFILE_NOT_FOUND);
 		return (false);
 	}
 	close(fd);

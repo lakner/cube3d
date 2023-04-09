@@ -13,17 +13,32 @@
 #ifndef ERR_GLOSSARY_H
 # define ERR_GLOSSARY_H
 
-# define MAP_ERROR "An error occured while trying to read the map.\n"
-# define COLOR_INVALID "Invalid color.\n"
-# define TEXTURE_INVALID "Invalid texture.\n"
-# define TEXTURE_PERMISSION "No read permission for texture file.\n"
-# define TOO_MANY_ARGS_PATH "Too many arguments. Expenting path to texture.\n"
-# define TOO_MANY_ARGS "Too many arguments.\nTry: ./cub3D maps/test.cub\n"
-# define TOO_FEW_ARGS "Too few arguments.\nTry: ./cub3D maps/test.cub\n"
-# define MAP_NOT_FOUND "Map not found.\n"
-# define NOT_DOT_CUB "Invalid map file extension.\nAccepting only .cub files.\n"
-# define INVALID_MAP "Invalid map.\n"
-# define PNG_ONLY "Only PNG files are supported for textures.\n"
-# define TOO_MANY_PLAYERS "Invalid map. Too many players detected.\n"
+/* TERMINAL */
+# define TERM_TOO_MANY_ARGS "Too many arguments. Try: ./cub3D maps/test.cub\n"
+# define TERM_TOO_FEW_ARGS "Too few arguments. Try: ./cub3D maps/test.cub\n"
+
+/* MAPFILE */
+# define MAPFILE_NOT_FOUND "Could not find this map file.\n"
+# define MAPFILE_EXT "Invalid map file extension. Accepting only .cub files.\n"
+# define MAPFILE_ERROR "A syntax error occured while reading the map file.\n"
+# define MAPFILE_ID_ARGS "Invalid arguments for one or more identifiers.\n"
+# define MAPFILE_ID_NO_ID "Identifier(s) missing from this map file.\n"
+# define MAPFILE_ID_READ "Unexpected error while reading identifier values.\n"
+# define MAPFILE_NO_MAP "No map found in this map file.\n"
+
+/* TEXTURES */
+# define TEXTURE_OPEN "Could not open one or more texture files.\n"
+# define TEXTURE_PERMISSION "No read permission for texture file(s).\n"
+# define TEXTURE_PNG "Only PNG files are supported for textures.\n"
+
+/* COLORS */
+# define COLOR_INVALID "Unexpected syntax for color.\n"
+# define COLOR_RGB "Invalid RGB value for color.\n"
+
+/* MAP*/
+# define MAP_OPEN "Invalid map border structure.\n"
+# define MAP_INV_CHAR "Invalid character detected in this map.\n"
+# define MAP_NO_PLAYER "No player detected on this map.\n"
+# define MAP_TOO_MANY_P "Too many players detected on this map.\n"
 
 #endif

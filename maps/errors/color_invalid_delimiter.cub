@@ -1,11 +1,11 @@
 R 500 500
-NO tests/textures/wall.xpm
-SO tests/textures/bricks.xpm
-WE tests/textures/gold.xpm
-EA tests/textures/wood.xpm
-S tests/textures/enemy.xpm
+NO textures/wall.png
+SO textures/bricks.png
+WE textures/enemy.png
+EA textures/wood.png
+S tests/textures/enemy.png
 F 220,111,119
-C 225,111,256
+C 225,111.255
 
  11111111111111111111111111111111111111
 1000000000000000000000000000000000000001

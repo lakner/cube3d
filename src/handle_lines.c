@@ -48,8 +48,8 @@ void
 	char	**tokens;
 
 	tokens = ft_split(str, ' ');
-	if (u_count_words(str, ' ') > 2)
-		raise_error(TOO_MANY_ARGS_PATH);
+	if (u_count_words(str, ' ') != 2)
+		raise_error(MAPFILE_ID_ARGS);
 	if (!u_strcmp(tokens[0], "NO") && texture_valid(tokens[1]))
 		data->no_fn = ft_strncpy(tokens[1], ft_strlen(tokens[1]));
 	else if (!u_strcmp(tokens[0], "SO") && texture_valid(tokens[1]))
@@ -63,7 +63,7 @@ void
 	else if (!u_strcmp(tokens[0], "C") && color_valid(tokens[1]))
 		data->c_colors = scrap_colors(tokens[1]);
 	else
-		raise_error(TEXTURE_INVALID);
+		raise_error(MAPFILE_ID_READ);
 	free_split(tokens);
 }
 

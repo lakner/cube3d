@@ -23,6 +23,7 @@ void				init_data(struct s_data *data, char *file_map);
 bool				create_data(struct s_data *data, char *file_map);
 void				init_data(struct s_data *data, char *file_map);
 void				update_w_h(struct s_data *data, char *line);
+bool				check_id(struct s_data *data);
 
 /* handle_lines.c */
 char				*strip_newline(char *line);

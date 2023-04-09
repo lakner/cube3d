@@ -17,8 +17,12 @@ void
 {
 	data->map = create_map_array(data);
 	if (check_map(data->map, data->height, data->width) == false)
-		raise_error(INVALID_MAP);
+		raise_error(MAP_OPEN);
 	data->map_int = map_to_int_array(data);
+	if (data->height == 0 && data->width == 0)
+		raise_error(MAPFILE_NO_MAP);
+	if (data->player_s == false)
+		raise_error(MAP_NO_PLAYER);
 }
 
 char**
@@ -86,7 +90,7 @@ int
 			else if (data->map[i][j] == '1' || data->map[i][j] == '0')
 				int_map[i][j] = data->map[i][j] - '0';
 			else
-				raise_error(INVALID_MAP);
+				raise_error(MAP_INV_CHAR);
 		}
 		i++;
 	}
@@ -97,7 +101,7 @@ void
 	set_player_position(struct s_data *data, int **int_map, int i, int j)
 {
 	if (data->player_s == true)
-		raise_error(TOO_MANY_PLAYERS);
+		raise_error(MAP_TOO_MANY_P);
 	data->player_x = j;
 	data->player_y = i;
 	data->player_o = data->map[i][j];
