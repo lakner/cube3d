@@ -6,17 +6,12 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 23:04:40 by slakner           #+#    #+#             */
-/*   Updated: 2023/03/31 23:45:06 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/09 17:20:30 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <math.h>
 #include "cub3d.h"
 #include "draw_pixel_col.h"
-#include "../libft/include/libft.h"
 
 //****** void	draw_image(mlx_image_t *image,  t_img_data *img_data) ******
 // draws the current frame,  one column of pixels at a time
