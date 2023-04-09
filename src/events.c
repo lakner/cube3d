@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 17:41:09 by slakner           #+#    #+#             */
-/*   Updated: 2023/04/09 16:02:34 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/09 18:57:26 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,11 @@ void	leftright_key_hook(mlx_key_data_t keydata, void *img_data)
 	t_img_data	*img;
 
 	img = (t_img_data *) img_data;
-	if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)
-		rotate_left(img);
-	if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)
-		rotate_right(img);
+	if (keydata.action == MLX_PRESS)
+	{
+		if (keydata.key == MLX_KEY_LEFT)
+			rotate_right(img);
+		else if (keydata.key == MLX_KEY_RIGHT)
+			rotate_left(img);
+	}
 }
