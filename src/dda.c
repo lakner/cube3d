@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 20:52:51 by slakner           #+#    #+#             */
-/*   Updated: 2023/04/09 17:03:41 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/09 18:34:54 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,9 @@ double	wall_found(t_column *col, int walltype)
 	if (walltype == NS)
 	{
 		if (col->ray_dir.y >= 0)
-			col->walldir = NORTH;
-		else
 			col->walldir = SOUTH;
+		else
+			col->walldir = NORTH;
 		if ((col->dist_side.y - col->delta_side.y) < 0.1)
 			return (0.1);
 		else

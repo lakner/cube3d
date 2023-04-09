@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:20:57 by slakner           #+#    #+#             */
-/*   Updated: 2023/04/09 17:21:09 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/09 18:34:04 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	init_view_dir(t_img_data *img_data, char dir)
 	}
 	else if (dir == 'N')
 	{
-		set_view_dir(img_data, 0, 1);
+		set_view_dir(img_data, 0, -1);
 		set_cam_plane(img_data, 0.66, 0);
 	}
 	else if (dir == 'E')
@@ -43,7 +43,7 @@ void	init_view_dir(t_img_data *img_data, char dir)
 	}
 	else if (dir == 'S')
 	{
-		set_view_dir(img_data, 0, -1);
+		set_view_dir(img_data, 0, 1);
 		set_cam_plane(img_data, -0.66, 0);
 	}
 }

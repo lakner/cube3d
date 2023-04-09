@@ -37,8 +37,8 @@ void	move_forward_backward(t_img_data *img, int dir)
 }
 
 // int dir should either be 1 or -1
-// dir=1: move right
-// dir= -1: move legt
+// dir= -1: move right
+// dir=  1: move left
 void	move_left_right(t_img_data *img, int dir)
 {
 	t_dpoint	dir_tmp;
@@ -79,9 +79,9 @@ void	key_event(void *img_data)
 		move_forward_backward(img, 1);
 	if (mlx_is_key_down(mlx, MLX_KEY_S))
 		move_forward_backward(img, -1);
-	if (mlx_is_key_down(mlx, MLX_KEY_A))
-		move_left_right(img, -1);
 	if (mlx_is_key_down(mlx, MLX_KEY_D))
+		move_left_right(img, -1);
+	else if (mlx_is_key_down(mlx, MLX_KEY_A))
 		move_left_right(img, 1);
 }
 
