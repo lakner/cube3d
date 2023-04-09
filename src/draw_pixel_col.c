@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 20:14:14 by slakner           #+#    #+#             */
-/*   Updated: 2023/04/09 17:04:58 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/09 19:26:53 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	calc_tex_x(t_img_data *data, t_column *col)
 		wall_x = (double)data->player.x + col->walldist * col->ray_dir.x;
 		wall_x -= floor(wall_x);
 		tex_x = (wall_x * (double) data->texture[col->walldir]->width);
-		if (col->ray_dir.y < 0)
+		if (col->walldir == SOUTH)
 			tex_x = data->texture[col->walldir]->width - tex_x - 1;
 	}
 	else
@@ -99,7 +99,7 @@ int	calc_tex_x(t_img_data *data, t_column *col)
 		wall_x = (double)data->player.y + col->walldist * col->ray_dir.y;
 		wall_x -= floor(wall_x);
 		tex_x = (wall_x * (double)data->texture[col->walldir]->width);
-		if (col->ray_dir.x > 0)
+		if (col->walldir == WEST)
 			tex_x = data->texture[col->walldir]->width - tex_x - 1;
 	}
 	return (tex_x);

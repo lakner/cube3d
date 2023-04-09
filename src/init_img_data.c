@@ -6,7 +6,7 @@
 /*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:20:57 by slakner           #+#    #+#             */
-/*   Updated: 2023/04/09 18:34:04 by slakner          ###   ########.fr       */
+/*   Updated: 2023/04/09 19:01:01 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	set_cam_plane(t_img_data *img_data, double cam_x, double cam_y)
 
 void	init_view_dir(t_img_data *img_data, char dir)
 {
-	if (dir == 'W')
+	if (dir == 'E')
 	{
-		set_view_dir(img_data, -1, 0);
+		set_view_dir(img_data, 1, 0);
 		set_cam_plane(img_data, 0, 0.66);
 	}
 	else if (dir == 'N')
@@ -36,9 +36,9 @@ void	init_view_dir(t_img_data *img_data, char dir)
 		set_view_dir(img_data, 0, -1);
 		set_cam_plane(img_data, 0.66, 0);
 	}
-	else if (dir == 'E')
+	else if (dir == 'W')
 	{
-		set_view_dir(img_data, 1, 0);
+		set_view_dir(img_data, -1, 0);
 		set_cam_plane(img_data, 0, -0.66);
 	}
 	else if (dir == 'S')
