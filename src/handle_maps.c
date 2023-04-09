@@ -6,7 +6,7 @@
 /*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 05:09:48 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/09 02:25:12 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/04/09 16:16:37 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,6 @@ void
 {
 	data->player_x = j;
 	data->player_y = i;
+	data->player_o = data->map[i][j];
 	int_map[i][j] = 0;
 }
