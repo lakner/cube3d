@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stephanie.lakner <stephanie.lakner@stud    +#+  +:+       +#+        */
+/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 20:52:51 by slakner           #+#    #+#             */
-/*   Updated: 2023/04/06 15:11:27 by stephanie.l      ###   ########.fr       */
+/*   Updated: 2023/04/09 17:03:41 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,14 @@ double	dist_to_next_wall(t_img_data *data, t_ipoint map_sq, t_column *col)
 			col->dist_side.x += col->delta_side.x;
 			map_sq.x += stepdir(col->ray_dir).x;
 			if (data->map[map_sq.y][map_sq.x] > 0)
-				return (wall_found(col, NS));
+				return (wall_found(col, EW));
 		}
 		else
 		{
 			col->dist_side.y += col->delta_side.y;
 			map_sq.y += stepdir(col->ray_dir).y;
 			if (data->map[map_sq.y][map_sq.x] > 0)
-				return (wall_found(col, EW));
+				return (wall_found(col, NS));
 		}
 	}
 }
@@ -95,12 +95,12 @@ t_ipoint	stepdir(t_dpoint ray_dir)
 
 double	wall_found(t_column *col, int walltype)
 {
-	if (walltype == 0)
+	if (walltype == NS)
 	{
 		if (col->ray_dir.y >= 0)
-			col->walldir = EAST;
+			col->walldir = NORTH;
 		else
-			col->walldir = WEST;
+			col->walldir = SOUTH;
 		if ((col->dist_side.y - col->delta_side.y) < 0.1)
 			return (0.1);
 		else
@@ -109,9 +109,9 @@ double	wall_found(t_column *col, int walltype)
 	else
 	{
 		if (col->ray_dir.x >= 0)
-			col->walldir = NORTH;
+			col->walldir = EAST;
 		else
-			col->walldir = SOUTH;
+			col->walldir = WEST;
 		if ((col->dist_side.x - col->delta_side.x) < 0.1)
 			return (0.1);
 		return (col->dist_side.x - col->delta_side.x);

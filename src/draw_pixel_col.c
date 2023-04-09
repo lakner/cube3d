@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_pixel_col.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stephanie.lakner <stephanie.lakner@stud    +#+  +:+       +#+        */
+/*   By: slakner <slakner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 20:14:14 by slakner           #+#    #+#             */
-/*   Updated: 2023/04/06 15:23:09 by stephanie.l      ###   ########.fr       */
+/*   Updated: 2023/04/09 17:04:58 by slakner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	calc_tex_x(t_img_data *data, t_column *col)
 	double	wall_x;
 	int		tex_x;
 
-	if (col->walldir == WEST || col->walldir == EAST)
+	if (col->walldir == NORTH || col->walldir == SOUTH)
 	{
 		wall_x = (double)data->player.x + col->walldist * col->ray_dir.x;
 		wall_x -= floor(wall_x);
