@@ -6,7 +6,7 @@
 /*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 05:09:48 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/08 20:12:16 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/04/09 02:25:12 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,18 @@ int
 	while (i < data->height)
 	{
 		int_map[i] = (int *) malloc(data->width * sizeof(int));
-	j = 0;
-		while (j < data->width)
+	j = -1;
+		while (++j < data->width)
 		{
 			if (data->map[i][j] == ' ')
 				int_map[i][j] = 2;
-			else if (data->map[i][j] == 'N')
+			else if (data->map[i][j] == 'N' || data->map[i][j] == 'S'
+					|| data->map[i][j] == 'E' || data->map[i][j] == 'W')
 				set_player_position(data, int_map, i, j);
-			else
+			else if (data->map[i][j] == '1' || data->map[i][j] == '0')
 				int_map[i][j] = data->map[i][j] - '0';
-			j++;
+			else
+				raise_error(INVALID_MAP);
 		}
 		i++;
 	}

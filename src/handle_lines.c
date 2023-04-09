@@ -32,12 +32,12 @@ char*
 bool
 	line_start_valid(char *str)
 {
-	if (str[0] == 'N'
-		|| str[0] == 'S'
-		|| str[0] == 'W'
-		|| str[0] == 'E'
-		|| str[0] == 'F'
-		|| str[0] == 'C')
+	if ((str[0] == 'N' && str[1] == 'O')
+		|| (str[0] == 'S' && str[1] == 'O')
+		|| (str[0] == 'W' && str[1] == 'E')
+		|| (str[0] == 'E' && str[1] == 'A')
+		|| (str[0] == 'F' && str[1] == ' ')
+		|| (str[0] == 'C' && str[1] == ' '))
 		return (true);
 	return (false);
 }
@@ -63,7 +63,7 @@ void
 	else if (!u_strcmp(tokens[0], "C") && color_valid(tokens[1]))
 		data->c_colors = scrap_colors(tokens[1]);
 	else
-		raise_error(COLOR_INVALID);
+		raise_error(TEXTURE_INVALID);
 	free_split(tokens);
 }
 

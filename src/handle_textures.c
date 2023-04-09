@@ -19,6 +19,11 @@ bool
 
 	if (str == NULL)
 		return (false);
+	if (ft_strncmp(str + ft_strlen(str) - 4, ".png", 4))
+	{
+		raise_error(PNG_ONLY);
+		return (false);
+	}
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
 	{

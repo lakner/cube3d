@@ -25,11 +25,13 @@ bool
 		if (rgb[i] == NULL || u_str_is_numeric(rgb[i]) == false)
 		{
 			free_split(rgb);
+			raise_error(COLOR_INVALID);
 			return (false);
 		}
-		else if (ft_atoi(rgb[i]) < 0 && ft_atoi(rgb[i]) > 255)
+		else if (ft_atoi(rgb[i]) < 0 || ft_atoi(rgb[i]) > 255)
 		{
 			free_split(rgb);
+			raise_error(COLOR_INVALID);
 			return (false);
 		}
 		i++;
