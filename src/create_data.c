@@ -49,7 +49,7 @@ void
 	data->height = 0;
 	data->map_list = NULL;
 	data->map_found = false;
-	data->player_s = 0;
+	data->player_s = false;
 }
 
 void
