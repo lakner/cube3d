@@ -18,33 +18,6 @@
 #include "draw_pixel_col.h"
 #include "../libft/include/libft.h"
 
-t_img_data	init_img_data(t_data *data, mlx_t *mlx, mlx_image_t *img)
-{
-	t_img_data	img_data;
-
-	img_data.texture[NORTH] = mlx_load_png(data->no_fn);
-	img_data.texture[SOUTH] = mlx_load_png(data->so_fn);
-	img_data.texture[EAST] = mlx_load_png(data->ea_fn);
-	img_data.texture[WEST] = mlx_load_png(data->we_fn);
-	img_data.screen_width = SCREEN_X;
-	img_data.screen_height = SCREEN_Y;
-	img_data.map_x = data->width;
-	img_data.map_y = data->height;
-	img_data.player.x = data->player_x + 0.5;
-	img_data.player.y = data->player_y + 0.5;
-	img_data.ground_color = rgb_to_hex(data->f_colors);
-	img_data.sky_color = rgb_to_hex(data->c_colors);
-	img_data.move_speed = 0.15;
-	img_data.cam_p.x = 0;
-	img_data.cam_p.y = 0.66;
-	img_data.dir.x = -1;
-	img_data.dir.y = 0;
-	img_data.map = data->map_int;
-	img_data.mlx = mlx;
-	img_data.image = img;
-	return (img_data);
-}
-
 //****** void	draw_image(mlx_image_t *image,  t_img_data *img_data) ******
 // draws the current frame,  one column of pixels at a time
 //double cam_x:	coordinate in camera space: width of the screen
