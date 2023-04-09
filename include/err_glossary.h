@@ -19,7 +19,7 @@
 
 /* MAPFILE */
 # define MAPFILE_NOT_FOUND "Could not find this map file.\n"
-# define MAPFILE_EXT "Invalid map file extension. Accepting only .cub files.\n"
+# define MAPFILE_EXT "Invalid map file extension or path. Only .cub files.\n"
 # define MAPFILE_ERROR "A syntax error occured while reading the map file.\n"
 # define MAPFILE_ID_ARGS "Invalid arguments for one or more identifiers.\n"
 # define MAPFILE_ID_NO_ID "Identifier(s) missing from this map file.\n"
