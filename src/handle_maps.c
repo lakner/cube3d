@@ -96,8 +96,11 @@ int
 void
 	set_player_position(struct s_data *data, int **int_map, int i, int j)
 {
+	if (data->player_s == 1)
+		raise_error(TOO_MANY_PLAYERS);
 	data->player_x = j;
 	data->player_y = i;
 	data->player_o = data->map[i][j];
+	data->player_s = 1;
 	int_map[i][j] = 0;
 }

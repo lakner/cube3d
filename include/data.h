@@ -24,6 +24,7 @@ typedef struct s_data
 	int					player_x;
 	int					player_y;
 	char				player_o;
+	int					player_s;
 	int					width;
 	int					height;
 	int					map_fd;

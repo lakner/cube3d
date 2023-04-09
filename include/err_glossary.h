@@ -24,6 +24,6 @@
 # define NOT_DOT_CUB "Invalid map file extension.\nAccepting only .cub files.\n"
 # define INVALID_MAP "Invalid map.\n"
 # define PNG_ONLY "Only PNG files are supported for textures.\n"
-# define SYNTAX_ERROR "Syntax Error.\n"
+# define TOO_MANY_PLAYERS "Invalid map. Too many players detected.\n"
 
 #endif
