@@ -1,8 +1,8 @@
 
-NO cub3d-tester/textures/wall.png
-SO cub3d-tester/textures/bricks.png
-WE cub3d-tester/textures/gold.png
-EA cub3d-tester/textures/wood.png
+NO textures/wall.png
+SO textures/bricks.png
+WE textures/DIRT.png
+EA textures/wood.png
 F 220,111,119
 C 225,111,0
 
@@ -16,6 +16,6 @@ C 225,111,0
       100000000001
        1000000001
         10000001
-         102201
+         101101
           1001
            11
