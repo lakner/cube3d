@@ -188,3 +188,15 @@ echo ""
 ./cub3D maps/errors/map_too_many_players.cub
 echo ""
 read -p "Press enter to continue"
+
+echo ""
+echo ""
+echo "Test: Empty line through the map"
+echo ""
+echo "$ ./cub3D maps/errors/map_empty_line.cub"
+echo "---"
+cat maps/errors/map_empty_line.cub
+echo ""
+./cub3D maps/errors/map_empty_line.cub
+echo ""
+read -p "Press enter to continue"

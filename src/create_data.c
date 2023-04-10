@@ -40,10 +40,10 @@ bool
 			new = u_create_node(line);
 			u_lst_add_back(&data->map_list, new);
 		}
-		else if (line_is_empty(data, line) == false)
+		else if (line_is_empty(data, line) == false && data->map_found == false)
 			;
 		else
-			raise_error(MAPFILE_ERROR);
+			raise_error(MAP_BROKEN);
 		free(line);
 		line = strip_newline(get_next_line(data->map_fd));
 	}
