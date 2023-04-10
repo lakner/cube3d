@@ -61,6 +61,12 @@ void	move_left_right(t_img_data *img, int dir)
 		else if (img->map[map_sq.y][map_sq.x - 1]
 			&& pos_tmp.x - map_sq.x <= 0.2)
 			pos_tmp.x += 0.1;
+		else if (img->map[map_sq.y + 1][map_sq.x]
+			&& map_sq.y + 1 - pos_tmp.y <= 0.2)
+			pos_tmp.y -= 0.1;
+		else if (img->map[map_sq.y - 1][map_sq.x]
+			&& pos_tmp.y - map_sq.y <= 0.2)
+			pos_tmp.y += 0.1;
 		img->player = pos_tmp;
 	}
 	draw_image(img->image, img);
