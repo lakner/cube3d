@@ -6,7 +6,7 @@
 /*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 04:31:44 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/09 03:08:22 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/04/10 20:37:15 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void
 	raise_error(char *err)
 {
+	printf("Error\n");
 	write(2, err, ft_strlen(err));
 	exit(1);
 }
