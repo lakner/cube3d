@@ -42,32 +42,28 @@ void	move_forward_backward(t_img_data *img, int dir)
 void	move_left_right(t_img_data *img, int dir)
 {
 	t_dpoint	dir_tmp;
-	t_dpoint	pos_tmp;
-	t_ipoint	map_sq;
+	t_dpoint	tmp;
+	t_ipoint	map;
 
 	if (dir == 1)
 		dir_tmp = rot90(img->dir);
 	else
 		dir_tmp = rot270(img->dir);
-	pos_tmp.x = img->player.x + dir_tmp.x * img->move_speed;
-	pos_tmp.y = img->player.y + dir_tmp.y * img->move_speed;
-	map_sq.x = pos_tmp.x;
-	map_sq.y = pos_tmp.y;
-	if (!(img->map[map_sq.y][map_sq.x]))
+	tmp.x = img->player.x + dir_tmp.x * img->move_speed;
+	tmp.y = img->player.y + dir_tmp.y * img->move_speed;
+	map.x = tmp.x;
+	map.y = tmp.y;
+	if (!(img->map[map.y][map.x]))
 	{
-		if (img->map[map_sq.y][map_sq.x + 1]
-			&& map_sq.x + 1 - pos_tmp.x <= 0.2)
-			pos_tmp.x -= 0.1;
-		else if (img->map[map_sq.y][map_sq.x - 1]
-			&& pos_tmp.x - map_sq.x <= 0.2)
-			pos_tmp.x += 0.1;
-		else if (img->map[map_sq.y + 1][map_sq.x]
-			&& map_sq.y + 1 - pos_tmp.y <= 0.2)
-			pos_tmp.y -= 0.1;
-		else if (img->map[map_sq.y - 1][map_sq.x]
-			&& pos_tmp.y - map_sq.y <= 0.2)
-			pos_tmp.y += 0.1;
-		img->player = pos_tmp;
+		if (img->map[map.y][map.x + 1] && map.x + 1 - tmp.x <= 0.2)
+			tmp.x -= 0.1;
+		else if (img->map[map.y][map.x - 1] && tmp.x - map.x <= 0.2)
+			tmp.x += 0.1;
+		else if (img->map[map.y + 1][map.x] && map.y + 1 - tmp.y <= 0.2)
+			tmp.y -= 0.1;
+		else if (img->map[map.y - 1][map.x] && tmp.y - map.y <= 0.2)
+			tmp.y += 0.1;
+		img->player = tmp;
 	}
 	draw_image(img->image, img);
 }
@@ -77,7 +73,7 @@ void	key_event(void *img_data)
 	mlx_t		*mlx;
 	t_img_data	*img;
 
-	img = (t_img_data *) img_data;
+	img = (t_img_data *)img_data;
 	mlx = img->mlx;
 	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
 		win_close(img);
@@ -95,7 +91,7 @@ void	leftright_key_hook(mlx_key_data_t keydata, void *img_data)
 {
 	t_img_data	*img;
 
-	img = (t_img_data *) img_data;
+	img = (t_img_data *)img_data;
 	if (keydata.action == MLX_PRESS)
 	{
 		if (keydata.key == MLX_KEY_LEFT)
