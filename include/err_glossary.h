@@ -22,7 +22,7 @@
 # define MAPFILE_EXT "Invalid map file extension or path. Only .cub files.\n"
 # define MAPFILE_ID_ARGS "Invalid arguments for one or more identifiers.\n"
 # define MAPFILE_ID_NO_ID "Identifier(s) missing from this map file.\n"
-# define MAPFILE_ID_READ "Unexpected error while reading identifier values.\n"
+# define MAPFILE_ID_VALUE "Loading identifier values failed.\n"
 # define MAPFILE_NO_MAP "No map found in this map file.\n"
 
 /* TEXTURES */
@@ -40,5 +40,6 @@
 # define MAP_NO_PLAYER "No player detected on this map.\n"
 # define MAP_TOO_MANY_P "Too many players detected on this map.\n"
 # define MAP_BROKEN "This map seems to be broken.\n"
+# define MAP_SYNTAX "This map file has syntax errors.\n"
 
 #endif

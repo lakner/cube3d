@@ -20,7 +20,7 @@ bool				user_input(int argc, char **argv);
 
 /* create_data.c */
 void				init_data(struct s_data *data, char *file_map);
-bool				create_data(struct s_data *data, char *file_map);
+bool				create_data(struct s_data *data);
 void				init_data(struct s_data *data, char *file_map);
 void				update_w_h(struct s_data *data, char *line);
 bool				check_id(struct s_data *data);
@@ -30,7 +30,7 @@ char				*strip_newline(char *line);
 bool				line_start_valid(char *str);
 void				data_line_save(struct s_data *data, char *str);
 bool				line_map(struct s_data *data, char *str);
-bool				line_is_empty(struct s_data *data, char *str);
+bool				line_is_empty(char *str);
 
 /* free.c */
 void				free_split(char **tokens);

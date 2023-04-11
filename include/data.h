@@ -32,6 +32,7 @@ typedef struct s_data
 	char				*so_fn;
 	char				*we_fn;
 	char				*ea_fn;
+	char				**tokens;
 	unsigned char		*f_colors;
 	unsigned char		*c_colors;
 	long long			f_color;

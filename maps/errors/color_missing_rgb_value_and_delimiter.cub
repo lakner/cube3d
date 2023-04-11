@@ -1,9 +1,7 @@
-R 500 500
 NO textures/wall.png
 SO textures/bricks.png
 WE textures/enemy.png
 EA textures/wood.png
-S tests/textures/enemy.png
 F 220,111,119
 C 225,111
 

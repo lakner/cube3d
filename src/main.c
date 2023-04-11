@@ -60,7 +60,8 @@ int
 
 	if (user_input(argc, argv) == true)
 	{
-		if (create_data(&data, argv[1]))
+		init_data(&data, argv[1]);
+		if (create_data(&data))
 			draw(&data);
 		data_destroy(&data);
 	}

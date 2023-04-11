@@ -23,12 +23,11 @@ bool
 }
 
 bool
-	create_data(struct s_data *data, char *file_map)
+	create_data(struct s_data *data)
 {
 	char				*line;
 	struct s_map_list	*new;
 
-	init_data(data, file_map);
 	line = strip_newline(get_next_line(data->map_fd));
 	while (line != NULL)
 	{
@@ -40,10 +39,12 @@ bool
 			new = u_create_node(line);
 			u_lst_add_back(&data->map_list, new);
 		}
-		else if (line_is_empty(data, line) == false && data->map_found == false)
+		else if (line_is_empty(line) == true && data->map_found == true)
+			raise_error(MAP_BROKEN);
+		else if (line_is_empty(line) == true)
 			;
 		else
-			raise_error(MAP_BROKEN);
+			raise_error(MAP_SYNTAX);
 		free(line);
 		line = strip_newline(get_next_line(data->map_fd));
 	}

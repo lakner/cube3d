@@ -6,7 +6,7 @@
 /*   By: dcharala <dcharala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 04:50:17 by dcharala          #+#    #+#             */
-/*   Updated: 2023/04/08 20:08:13 by dcharala         ###   ########.fr       */
+/*   Updated: 2023/04/11 02:08:16 by dcharala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,26 +45,30 @@ bool
 void
 	data_line_save(struct s_data *data, char *str)
 {
-	char	**tokens;
-
-	tokens = ft_split(str, ' ');
+	data->tokens = ft_split(str, ' ');
 	if (u_count_words(str, ' ') != 2)
 		raise_error(MAPFILE_ID_ARGS);
-	if (!u_strcmp(tokens[0], "NO") && texture_valid(tokens[1]))
-		data->no_fn = ft_strncpy(tokens[1], ft_strlen(tokens[1]));
-	else if (!u_strcmp(tokens[0], "SO") && texture_valid(tokens[1]))
-		data->so_fn = ft_strncpy(tokens[1], ft_strlen(tokens[1]));
-	else if (!u_strcmp(tokens[0], "WE") && texture_valid(tokens[1]))
-		data->we_fn = ft_strncpy(tokens[1], ft_strlen(tokens[1]));
-	else if (!u_strcmp(tokens[0], "EA") && texture_valid(tokens[1]))
-		data->ea_fn = ft_strncpy(tokens[1], ft_strlen(tokens[1]));
-	else if (!u_strcmp(tokens[0], "F") && color_valid(tokens[1]))
-		data->f_colors = scrap_colors(tokens[1]);
-	else if (!u_strcmp(tokens[0], "C") && color_valid(tokens[1]))
-		data->c_colors = scrap_colors(tokens[1]);
+	if (!u_strcmp(data->tokens[0], "NO") && texture_valid(data->tokens[1])
+		&& data->no_fn == NULL)
+		data->no_fn = ft_strncpy(data->tokens[1], ft_strlen(data->tokens[1]));
+	else if (!u_strcmp(data->tokens[0], "SO") && texture_valid(data->tokens[1])
+		&& data->so_fn == NULL)
+		data->so_fn = ft_strncpy(data->tokens[1], ft_strlen(data->tokens[1]));
+	else if (!u_strcmp(data->tokens[0], "WE") && texture_valid(data->tokens[1])
+		&& data->we_fn == NULL)
+		data->we_fn = ft_strncpy(data->tokens[1], ft_strlen(data->tokens[1]));
+	else if (!u_strcmp(data->tokens[0], "EA") && texture_valid(data->tokens[1])
+		&& data->ea_fn == NULL)
+		data->ea_fn = ft_strncpy(data->tokens[1], ft_strlen(data->tokens[1]));
+	else if (!u_strcmp(data->tokens[0], "F") && color_valid(data->tokens[1])
+		&& data->f_colors == NULL)
+		data->f_colors = scrap_colors(data->tokens[1]);
+	else if (!u_strcmp(data->tokens[0], "C") && color_valid(data->tokens[1])
+		&& data->c_colors == NULL)
+		data->c_colors = scrap_colors(data->tokens[1]);
 	else
-		raise_error(MAPFILE_ID_READ);
-	free_split(tokens);
+		raise_error(MAPFILE_ID_VALUE);
+	free_split(data->tokens);
 }
 
 bool
@@ -79,10 +83,25 @@ bool
 }
 
 bool
-	line_is_empty(struct s_data *data, char *str)
+	line_is_empty(char *str)
 {
-	if (data->map_found == true && str[0] == '\n')
+	char	*new;
+	int		i;
+
+	i = 0;
+	new = malloc(sizeof(char) * (ft_strlen(str) + 2));
+	while (str[i] != '\0')
+	{
+		new[i] = str[i];
+		i++;
+	}
+	new[ft_strlen(str)] = '\n';
+	new[ft_strlen(str) + 1] = '\0';
+	if (new[0] == '\n')
+	{
+		free(new);
 		return (true);
-	else
-		return (false);
+	}
+	free(new);
+	return (false);
 }

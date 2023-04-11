@@ -68,6 +68,30 @@ read -p "Press enter to continue"
 
 echo ""
 echo ""
+echo "Test: Invalid identifier."
+echo ""
+echo "$ ./cub3D maps/errors/mapfile_id_invalid.cub"
+echo "---"
+cat maps/errors/mapfile_id_invalid.cub
+echo ""
+./cub3D maps/errors/mapfile_id_invalid.cub
+echo ""
+read -p "Press enter to continue"
+
+echo ""
+echo ""
+echo "Test: Duplicated identifier."
+echo ""
+echo "$ ./cub3D maps/errors/mapfile_id_duplicate.cub"
+echo "---"
+cat maps/errors/mapfile_id_duplicate.cub
+echo ""
+./cub3D maps/errors/mapfile_id_duplicate.cub
+echo ""
+read -p "Press enter to continue"
+
+echo ""
+echo ""
 echo "Test: No map in the map file."
 echo ""
 echo "$ ./cub3D maps/errors/mapfile_no_map.cub"
