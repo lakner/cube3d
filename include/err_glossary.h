@@ -41,5 +41,6 @@
 # define MAP_TOO_MANY_P "Too many players detected on this map.\n"
 # define MAP_BROKEN "This map seems to be broken.\n"
 # define MAP_SYNTAX "This map file has syntax errors.\n"
+# define MAP_PLAYER_OUT "A player detected outside th map's borders.\n"
 
 #endif
