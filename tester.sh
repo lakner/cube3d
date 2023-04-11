@@ -215,6 +215,18 @@ read -p "Press enter to continue"
 
 echo ""
 echo ""
+echo "Test: The player is outside the map"
+echo ""
+echo "$ ./cub3D maps/errors/map_player_outside.cub"
+echo "---"
+cat maps/errors/map_player_outside.cub
+echo ""
+./cub3D maps/errors/map_player_outside.cub
+echo ""
+read -p "Press enter to continue"
+
+echo ""
+echo ""
 echo "Test: Empty line through the map"
 echo ""
 echo "$ ./cub3D maps/errors/map_empty_line.cub"

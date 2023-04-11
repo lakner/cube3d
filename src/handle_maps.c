@@ -102,6 +102,11 @@ void
 {
 	if (data->player_s == true)
 		raise_error(MAP_TOO_MANY_P);
+	if ((data->map[i][j + 1] != '0' && data->map[i][j + 1] != '1')
+		|| (data->map[i][j - 1] != '0' && data->map[i][j - 1] != '1')
+		|| (data->map[i + 1][j] != '0' && data->map[i + 1][j] != '1')
+		|| (data->map[i - 1][j] != '0' && data->map[i - 1][j] != '1'))
+		raise_error(MAP_NO_PLAYER);
 	data->player_x = j;
 	data->player_y = i;
 	data->player_o = data->map[i][j];

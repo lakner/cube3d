@@ -17,7 +17,7 @@ void
 {
 	printf("Error\n");
 	write(2, err, ft_strlen(err));
-	exit(1);
+	exit(EXIT_FAILURE);
 }
 
 bool
